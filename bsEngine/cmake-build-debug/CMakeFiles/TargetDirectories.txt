@@ -1,0 +1,11 @@
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles/Shaders.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/edit_cache.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/vkbootstrap.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/imgui.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/rebuild_cache.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/tinyobjloader.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir
