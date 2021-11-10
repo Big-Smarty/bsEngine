@@ -2,12 +2,10 @@
 // Created by bigsmarty on 11/5/21.
 //
 
-#include <main.h>
+#include "main.hpp"
 
 void bsEngine::init_vulkan()
 {
-
-    vkb::InstanceBuilder builder;
 
     //create the vulkan instance with basic debugging features
     auto inst_ret = builder.set_app_name("BS Engine")
@@ -40,7 +38,16 @@ void bsEngine::init_vulkan()
     vkb::Device vkbDevice = deviceBuilder.build().value();
 
     //store the logical and physical device for later use
-    _device = vkbDevice.device;
+    _logicalDevice = vkbDevice.device;
     _chosenGPU = physicalDevice.physical_device;
 
+    VkPhysicalDeviceProperties _deviceProperties;
+    vkGetPhysicalDeviceProperties(_chosenGPU, &_deviceProperties);
+    std::cout << "Devicetype of the chosen GPU: " << _deviceProperties.deviceType << std::endl;
+
+    //use vkBootstrap to find a suitable graphics queue
+    _graphicsQueue = vkbDevice.get_queue(vkb::QueueType::graphics).value();
+    _graphicsQueueFamily = vkbDevice.get_queue_index(vkb::QueueType::graphics).value();
+
 }
+

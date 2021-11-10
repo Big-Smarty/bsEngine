@@ -1,10 +1,13 @@
 file(REMOVE_RECURSE
   "../../bin/vulkan_guide"
   "../../bin/vulkan_guide.pdb"
+  "CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o"
   "CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o"
   "CMakeFiles/vulkan_guide.dir/main.cpp.o"
+  "CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o"
   "CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o"
   "CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o"
+  "CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o"
   "CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o"
   "CMakeFiles/vulkan_guide.dir/window.cpp.o"
 )

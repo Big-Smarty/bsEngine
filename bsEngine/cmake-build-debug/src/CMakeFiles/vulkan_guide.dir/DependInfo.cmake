@@ -8,14 +8,17 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/src/main.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/main.cpp.o"
+  "/home/bigsmarty/Documents/bsEngine/src/vk_commands.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o"
+  "/home/bigsmarty/Documents/bsEngine/src/vk_renderpass.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/src/window.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/CMakeFiles/vulkan_guide.dir/window.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

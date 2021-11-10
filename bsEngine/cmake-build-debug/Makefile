@@ -169,17 +169,17 @@ tinyobjloader/fast:
 .PHONY : tinyobjloader/fast
 
 #=============================================================================
-# Target rules for targets named vulkan_guide
+# Target rules for targets named bsEngine
 
 # Build rule for target.
-vulkan_guide: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 vulkan_guide
-.PHONY : vulkan_guide
+bsEngine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bsEngine
+.PHONY : bsEngine
 
 # fast build rule for target.
-vulkan_guide/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/build
-.PHONY : vulkan_guide/fast
+bsEngine/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/build
+.PHONY : bsEngine/fast
 
 # Help Target
 help:
@@ -190,10 +190,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Shaders"
+	@echo "... bsEngine"
 	@echo "... imgui"
 	@echo "... tinyobjloader"
 	@echo "... vkbootstrap"
-	@echo "... vulkan_guide"
 .PHONY : help
 
 

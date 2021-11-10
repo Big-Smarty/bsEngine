@@ -69,15 +69,15 @@ include third_party/CMakeFiles/vkbootstrap.dir/flags.make
 third_party/CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.o: third_party/CMakeFiles/vkbootstrap.dir/flags.make
 third_party/CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.o: ../third_party/vkbootstrap/VkBootstrap.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object third_party/CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.o -c /home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.o -c /home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp
 
 third_party/CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp > CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp > CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.i
 
 third_party/CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp -o CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp -o CMakeFiles/vkbootstrap.dir/vkbootstrap/VkBootstrap.cpp.s
 
 # Object files for target vkbootstrap
 vkbootstrap_OBJECTS = \

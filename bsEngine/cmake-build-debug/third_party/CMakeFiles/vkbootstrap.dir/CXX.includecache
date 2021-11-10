@@ -6,29 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/bigsmarty/Documents/vulkan-guide-starting-point/third_party/vkbootstrap/VkBootstrap.cpp
-VkBootstrap.h
-/home/bigsmarty/Documents/vulkan-guide-starting-point/third_party/vkbootstrap/VkBootstrap.h
-cstdio
--
-cstring
--
-fcntl.h
--
-windows.h
--
-dlfcn.h
--
-mutex
--
-
-/home/bigsmarty/Documents/vulkan-guide-starting-point/third_party/vkbootstrap/VkBootstrap.h
-cassert
--
-vector
--
-system_error
--
-vulkan/vulkan.h
--
-

@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+5792012f86cd38241cab786a548a6489 ../shaders/triangle.frag.spv
+52613680b28b0365b44b2417bc8727aa ../shaders/triangle.vert.spv
+4e5b08366d724bf4f1a092daf57d4d59 CMakeFiles/Shaders

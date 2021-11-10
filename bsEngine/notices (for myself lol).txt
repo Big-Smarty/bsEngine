@@ -3,3 +3,7 @@ A pipeline is used to render shaders into an image
 A swapchain is used to store images before they are presented on the screen
 
 An imageview describes how to look at an image, as in if it should be treated as a texture, es a heightmap and so on
+
+the commandbuffer stores the commands to be executed on the gpu
+the commandpool is something like the resource manager for the command buffer
+

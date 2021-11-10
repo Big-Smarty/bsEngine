@@ -69,80 +69,119 @@ include src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/main.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/main.cpp.o: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/vulkan_guide.dir/main.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/main.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/main.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/main.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/main.cpp
 
 src/CMakeFiles/vulkan_guide.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/main.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/main.cpp > CMakeFiles/vulkan_guide.dir/main.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/main.cpp > CMakeFiles/vulkan_guide.dir/main.cpp.i
 
 src/CMakeFiles/vulkan_guide.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/main.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/main.cpp -o CMakeFiles/vulkan_guide.dir/main.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/main.cpp -o CMakeFiles/vulkan_guide.dir/main.cpp.s
 
 src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o: ../src/vk_engine.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp
 
 src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/vk_engine.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp > CMakeFiles/vulkan_guide.dir/vk_engine.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp > CMakeFiles/vulkan_guide.dir/vk_engine.cpp.i
 
 src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/vk_engine.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp -o CMakeFiles/vulkan_guide.dir/vk_engine.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp -o CMakeFiles/vulkan_guide.dir/vk_engine.cpp.s
 
 src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o: ../src/vk_initializers.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp
 
 src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp > CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp > CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.i
 
 src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp -o CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp -o CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.s
 
 src/CMakeFiles/vulkan_guide.dir/window.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/window.cpp.o: ../src/window.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/vulkan_guide.dir/window.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/window.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/window.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/window.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/window.cpp
 
 src/CMakeFiles/vulkan_guide.dir/window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/window.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/window.cpp > CMakeFiles/vulkan_guide.dir/window.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/window.cpp > CMakeFiles/vulkan_guide.dir/window.cpp.i
 
 src/CMakeFiles/vulkan_guide.dir/window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/window.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/window.cpp -o CMakeFiles/vulkan_guide.dir/window.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/window.cpp -o CMakeFiles/vulkan_guide.dir/window.cpp.s
 
 src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o: ../src/vk_setup.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp
 
 src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/vk_setup.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp > CMakeFiles/vulkan_guide.dir/vk_setup.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp > CMakeFiles/vulkan_guide.dir/vk_setup.cpp.i
 
 src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/vk_setup.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp -o CMakeFiles/vulkan_guide.dir/vk_setup.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp -o CMakeFiles/vulkan_guide.dir/vk_setup.cpp.s
 
 src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
 src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o: ../src/bs_swapchain.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp
 
 src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp > CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp > CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.i
 
 src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp -o CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp -o CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.s
+
+src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
+src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o: ../src/vk_commands.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_commands.cpp
+
+src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/vk_commands.cpp.i"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_commands.cpp > CMakeFiles/vulkan_guide.dir/vk_commands.cpp.i
+
+src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/vk_commands.cpp.s"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_commands.cpp -o CMakeFiles/vulkan_guide.dir/vk_commands.cpp.s
+
+src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
+src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o: ../src/vk_renderpass.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/vk_renderpass.cpp
+
+src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.i"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/vk_renderpass.cpp > CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.i
+
+src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.s"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/vk_renderpass.cpp -o CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.s
+
+src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o: src/CMakeFiles/vulkan_guide.dir/flags.make
+src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o: ../src/bs_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o -c /home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp
+
+src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vulkan_guide.dir/bs_draw.cpp.i"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp > CMakeFiles/vulkan_guide.dir/bs_draw.cpp.i
+
+src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vulkan_guide.dir/bs_draw.cpp.s"
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp -o CMakeFiles/vulkan_guide.dir/bs_draw.cpp.s
 
 # Object files for target vulkan_guide
 vulkan_guide_OBJECTS = \
@@ -151,7 +190,10 @@ vulkan_guide_OBJECTS = \
 "CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o" \
 "CMakeFiles/vulkan_guide.dir/window.cpp.o" \
 "CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o" \
-"CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o"
+"CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o" \
+"CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o" \
+"CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o" \
+"CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o"
 
 # External object files for target vulkan_guide
 vulkan_guide_EXTERNAL_OBJECTS =
@@ -162,13 +204,16 @@ vulkan_guide_EXTERNAL_OBJECTS =
 ../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/window.cpp.o
 ../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o
 ../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o
+../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/vk_commands.cpp.o
+../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/vk_renderpass.cpp.o
+../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/bs_draw.cpp.o
 ../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/build.make
 ../bin/vulkan_guide: third_party/libvkbootstrap.a
 ../bin/vulkan_guide: third_party/libtinyobjloader.a
 ../bin/vulkan_guide: third_party/libimgui.a
 ../bin/vulkan_guide: /lib/libvulkan.so
 ../bin/vulkan_guide: src/CMakeFiles/vulkan_guide.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../../bin/vulkan_guide"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../../bin/vulkan_guide"
 	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vulkan_guide.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

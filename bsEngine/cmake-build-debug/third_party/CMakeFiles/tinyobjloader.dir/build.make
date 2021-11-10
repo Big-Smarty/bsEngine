@@ -69,15 +69,15 @@ include third_party/CMakeFiles/tinyobjloader.dir/flags.make
 third_party/CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.o: third_party/CMakeFiles/tinyobjloader.dir/flags.make
 third_party/CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.o: ../third_party/tinyobjloader/tiny_obj_loader.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object third_party/CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.o"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.o -c /home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.o -c /home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc
 
 third_party/CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.i"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc > CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc > CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.i
 
 third_party/CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.s"
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc -o CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc -o CMakeFiles/tinyobjloader.dir/tinyobjloader/tiny_obj_loader.cc.s
 
 # Object files for target tinyobjloader
 tinyobjloader_OBJECTS = \

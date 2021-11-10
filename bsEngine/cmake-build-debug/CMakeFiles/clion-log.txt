@@ -1,17 +1,8 @@
-/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/bigsmarty/Documents/bsEngine
--- The C compiler identification is Clang 12.0.1
--- The CXX compiler identification is Clang 12.0.1
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/clang - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/clang++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Found Vulkan: /lib/libvulkan.so  
+/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/bigsmarty/Documents/bsEngine
+-- BUILDING SHADER
+-- /home/bigsmarty/Documents/bsEngine/shaders/triangle.frag
+-- BUILDING SHADER
+-- /home/bigsmarty/Documents/bsEngine/shaders/triangle.vert
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/bigsmarty/Documents/bsEngine/cmake-build-debug

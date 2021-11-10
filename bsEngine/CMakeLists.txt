@@ -3,9 +3,12 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("vulkan_guide")
+project ("bsEngine")
 
 set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_CXX_FLAGS="-fsanitize=address,undefined")
+#set(CMAKE_CXX_FLAGS -fprofile-generate)
 
 find_package(Vulkan REQUIRED)
 

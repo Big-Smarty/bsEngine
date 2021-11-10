@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="bsEngine"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Shaders">
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Shaders"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vkbootstrap">
+				<Option output="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/libvkbootstrap.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 vkbootstrap"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vkbootstrap/fast">
+				<Option output="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/libvkbootstrap.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 vkbootstrap/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="imgui">
+				<Option output="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/libimgui.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/imgui"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
+					<Add directory="/include/SDL2"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 imgui"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="imgui/fast">
+				<Option output="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/libimgui.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/imgui"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
+					<Add directory="/include/SDL2"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 imgui/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinyobjloader">
+				<Option output="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/libtinyobjloader.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 tinyobjloader"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinyobjloader/fast">
+				<Option output="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/libtinyobjloader.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 tinyobjloader/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bsEngine">
+				<Option output="/home/bigsmarty/Documents/bsEngine/bin/bsEngine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/src"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vma"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/glm"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/imgui"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
+					<Add directory="/include/SDL2"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/stb_image"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 bsEngine"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bsEngine/fast">
+				<Option output="/home/bigsmarty/Documents/bsEngine/bin/bsEngine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bigsmarty/Documents/bsEngine/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/src"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vma"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/glm"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/imgui"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
+					<Add directory="/include/SDL2"/>
+					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/stb_image"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 bsEngine/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bigsmarty/Documents/bsEngine/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/bs_frametime.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/bs_load_shaders.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/main.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/main.hpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/pipeline_builder.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/pipeline_builder.h">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_commands.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_engine.hpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_initializers.hpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_pipelines.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_renderpass.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_types.hpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/window.cpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/window.hpp">
+			<Option target="bsEngine"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui.cpp">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui.h">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_demo.cpp">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_draw.cpp">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_impl_sdl.cpp">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_impl_sdl.h">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_impl_vulkan.cpp">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_impl_vulkan.h">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_widgets.cpp">
+			<Option target="imgui"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.cc">
+			<Option target="tinyobjloader"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader/tiny_obj_loader.h">
+			<Option target="tinyobjloader"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.cpp">
+			<Option target="vkbootstrap"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap/VkBootstrap.h">
+			<Option target="vkbootstrap"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

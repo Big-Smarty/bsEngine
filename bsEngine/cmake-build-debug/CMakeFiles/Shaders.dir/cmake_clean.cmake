@@ -1,3 +1,8 @@
+file(REMOVE_RECURSE
+  "../shaders/triangle.frag.spv"
+  "../shaders/triangle.vert.spv"
+  "CMakeFiles/Shaders"
+)
 
 # Per-language clean rules from dependency scanning.
 foreach(lang )

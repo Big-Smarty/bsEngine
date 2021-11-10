@@ -66,6 +66,20 @@ include CMakeFiles/Shaders.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/Shaders.dir/progress.make
 
+CMakeFiles/Shaders: ../shaders/triangle.frag.spv
+CMakeFiles/Shaders: ../shaders/triangle.vert.spv
+
+../shaders/triangle.frag.spv: ../shaders/triangle.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../shaders/triangle.frag.spv"
+	/usr/bin/glslangValidator -V /home/bigsmarty/Documents/bsEngine/shaders/triangle.frag -o /home/bigsmarty/Documents/bsEngine/shaders/triangle.frag.spv
+
+../shaders/triangle.vert.spv: ../shaders/triangle.vert
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/bigsmarty/Documents/bsEngine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../shaders/triangle.vert.spv"
+	/usr/bin/glslangValidator -V /home/bigsmarty/Documents/bsEngine/shaders/triangle.vert -o /home/bigsmarty/Documents/bsEngine/shaders/triangle.vert.spv
+
+Shaders: CMakeFiles/Shaders
+Shaders: ../shaders/triangle.frag.spv
+Shaders: ../shaders/triangle.vert.spv
 Shaders: CMakeFiles/Shaders.dir/build.make
 .PHONY : Shaders
 

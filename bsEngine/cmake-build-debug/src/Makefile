@@ -117,25 +117,97 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/vulkan_guide.dir/rule:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/vulkan_guide.dir/rule
-.PHONY : src/CMakeFiles/vulkan_guide.dir/rule
+src/CMakeFiles/bsEngine.dir/rule:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/bsEngine.dir/rule
+.PHONY : src/CMakeFiles/bsEngine.dir/rule
 
 # Convenience name for target.
-vulkan_guide: src/CMakeFiles/vulkan_guide.dir/rule
-.PHONY : vulkan_guide
+bsEngine: src/CMakeFiles/bsEngine.dir/rule
+.PHONY : bsEngine
 
 # fast build rule for target.
-vulkan_guide/fast:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/build
-.PHONY : vulkan_guide/fast
+bsEngine/fast:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/build
+.PHONY : bsEngine/fast
+
+bs_draw.o: bs_draw.cpp.o
+.PHONY : bs_draw.o
+
+# target to build an object file
+bs_draw.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_draw.cpp.o
+.PHONY : bs_draw.cpp.o
+
+bs_draw.i: bs_draw.cpp.i
+.PHONY : bs_draw.i
+
+# target to preprocess a source file
+bs_draw.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_draw.cpp.i
+.PHONY : bs_draw.cpp.i
+
+bs_draw.s: bs_draw.cpp.s
+.PHONY : bs_draw.s
+
+# target to generate assembly for a file
+bs_draw.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_draw.cpp.s
+.PHONY : bs_draw.cpp.s
+
+bs_frametime.o: bs_frametime.cpp.o
+.PHONY : bs_frametime.o
+
+# target to build an object file
+bs_frametime.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_frametime.cpp.o
+.PHONY : bs_frametime.cpp.o
+
+bs_frametime.i: bs_frametime.cpp.i
+.PHONY : bs_frametime.i
+
+# target to preprocess a source file
+bs_frametime.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_frametime.cpp.i
+.PHONY : bs_frametime.cpp.i
+
+bs_frametime.s: bs_frametime.cpp.s
+.PHONY : bs_frametime.s
+
+# target to generate assembly for a file
+bs_frametime.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_frametime.cpp.s
+.PHONY : bs_frametime.cpp.s
+
+bs_load_shaders.o: bs_load_shaders.cpp.o
+.PHONY : bs_load_shaders.o
+
+# target to build an object file
+bs_load_shaders.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_load_shaders.cpp.o
+.PHONY : bs_load_shaders.cpp.o
+
+bs_load_shaders.i: bs_load_shaders.cpp.i
+.PHONY : bs_load_shaders.i
+
+# target to preprocess a source file
+bs_load_shaders.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_load_shaders.cpp.i
+.PHONY : bs_load_shaders.cpp.i
+
+bs_load_shaders.s: bs_load_shaders.cpp.s
+.PHONY : bs_load_shaders.s
+
+# target to generate assembly for a file
+bs_load_shaders.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_load_shaders.cpp.s
+.PHONY : bs_load_shaders.cpp.s
 
 bs_swapchain.o: bs_swapchain.cpp.o
 .PHONY : bs_swapchain.o
 
 # target to build an object file
 bs_swapchain.cpp.o:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.o
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_swapchain.cpp.o
 .PHONY : bs_swapchain.cpp.o
 
 bs_swapchain.i: bs_swapchain.cpp.i
@@ -143,7 +215,7 @@ bs_swapchain.i: bs_swapchain.cpp.i
 
 # target to preprocess a source file
 bs_swapchain.cpp.i:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_swapchain.cpp.i
 .PHONY : bs_swapchain.cpp.i
 
 bs_swapchain.s: bs_swapchain.cpp.s
@@ -151,7 +223,7 @@ bs_swapchain.s: bs_swapchain.cpp.s
 
 # target to generate assembly for a file
 bs_swapchain.cpp.s:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/bs_swapchain.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/bs_swapchain.cpp.s
 .PHONY : bs_swapchain.cpp.s
 
 main.o: main.cpp.o
@@ -159,7 +231,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/main.cpp.o
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -167,7 +239,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/main.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -175,15 +247,63 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/main.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+pipeline_builder.o: pipeline_builder.cpp.o
+.PHONY : pipeline_builder.o
+
+# target to build an object file
+pipeline_builder.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/pipeline_builder.cpp.o
+.PHONY : pipeline_builder.cpp.o
+
+pipeline_builder.i: pipeline_builder.cpp.i
+.PHONY : pipeline_builder.i
+
+# target to preprocess a source file
+pipeline_builder.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/pipeline_builder.cpp.i
+.PHONY : pipeline_builder.cpp.i
+
+pipeline_builder.s: pipeline_builder.cpp.s
+.PHONY : pipeline_builder.s
+
+# target to generate assembly for a file
+pipeline_builder.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/pipeline_builder.cpp.s
+.PHONY : pipeline_builder.cpp.s
+
+vk_commands.o: vk_commands.cpp.o
+.PHONY : vk_commands.o
+
+# target to build an object file
+vk_commands.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_commands.cpp.o
+.PHONY : vk_commands.cpp.o
+
+vk_commands.i: vk_commands.cpp.i
+.PHONY : vk_commands.i
+
+# target to preprocess a source file
+vk_commands.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_commands.cpp.i
+.PHONY : vk_commands.cpp.i
+
+vk_commands.s: vk_commands.cpp.s
+.PHONY : vk_commands.s
+
+# target to generate assembly for a file
+vk_commands.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_commands.cpp.s
+.PHONY : vk_commands.cpp.s
 
 vk_engine.o: vk_engine.cpp.o
 .PHONY : vk_engine.o
 
 # target to build an object file
 vk_engine.cpp.o:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.o
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_engine.cpp.o
 .PHONY : vk_engine.cpp.o
 
 vk_engine.i: vk_engine.cpp.i
@@ -191,7 +311,7 @@ vk_engine.i: vk_engine.cpp.i
 
 # target to preprocess a source file
 vk_engine.cpp.i:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_engine.cpp.i
 .PHONY : vk_engine.cpp.i
 
 vk_engine.s: vk_engine.cpp.s
@@ -199,7 +319,7 @@ vk_engine.s: vk_engine.cpp.s
 
 # target to generate assembly for a file
 vk_engine.cpp.s:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_engine.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_engine.cpp.s
 .PHONY : vk_engine.cpp.s
 
 vk_initializers.o: vk_initializers.cpp.o
@@ -207,7 +327,7 @@ vk_initializers.o: vk_initializers.cpp.o
 
 # target to build an object file
 vk_initializers.cpp.o:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.o
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_initializers.cpp.o
 .PHONY : vk_initializers.cpp.o
 
 vk_initializers.i: vk_initializers.cpp.i
@@ -215,7 +335,7 @@ vk_initializers.i: vk_initializers.cpp.i
 
 # target to preprocess a source file
 vk_initializers.cpp.i:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_initializers.cpp.i
 .PHONY : vk_initializers.cpp.i
 
 vk_initializers.s: vk_initializers.cpp.s
@@ -223,15 +343,63 @@ vk_initializers.s: vk_initializers.cpp.s
 
 # target to generate assembly for a file
 vk_initializers.cpp.s:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_initializers.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_initializers.cpp.s
 .PHONY : vk_initializers.cpp.s
+
+vk_pipelines.o: vk_pipelines.cpp.o
+.PHONY : vk_pipelines.o
+
+# target to build an object file
+vk_pipelines.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_pipelines.cpp.o
+.PHONY : vk_pipelines.cpp.o
+
+vk_pipelines.i: vk_pipelines.cpp.i
+.PHONY : vk_pipelines.i
+
+# target to preprocess a source file
+vk_pipelines.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_pipelines.cpp.i
+.PHONY : vk_pipelines.cpp.i
+
+vk_pipelines.s: vk_pipelines.cpp.s
+.PHONY : vk_pipelines.s
+
+# target to generate assembly for a file
+vk_pipelines.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_pipelines.cpp.s
+.PHONY : vk_pipelines.cpp.s
+
+vk_renderpass.o: vk_renderpass.cpp.o
+.PHONY : vk_renderpass.o
+
+# target to build an object file
+vk_renderpass.cpp.o:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_renderpass.cpp.o
+.PHONY : vk_renderpass.cpp.o
+
+vk_renderpass.i: vk_renderpass.cpp.i
+.PHONY : vk_renderpass.i
+
+# target to preprocess a source file
+vk_renderpass.cpp.i:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_renderpass.cpp.i
+.PHONY : vk_renderpass.cpp.i
+
+vk_renderpass.s: vk_renderpass.cpp.s
+.PHONY : vk_renderpass.s
+
+# target to generate assembly for a file
+vk_renderpass.cpp.s:
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_renderpass.cpp.s
+.PHONY : vk_renderpass.cpp.s
 
 vk_setup.o: vk_setup.cpp.o
 .PHONY : vk_setup.o
 
 # target to build an object file
 vk_setup.cpp.o:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.o
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_setup.cpp.o
 .PHONY : vk_setup.cpp.o
 
 vk_setup.i: vk_setup.cpp.i
@@ -239,7 +407,7 @@ vk_setup.i: vk_setup.cpp.i
 
 # target to preprocess a source file
 vk_setup.cpp.i:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_setup.cpp.i
 .PHONY : vk_setup.cpp.i
 
 vk_setup.s: vk_setup.cpp.s
@@ -247,7 +415,7 @@ vk_setup.s: vk_setup.cpp.s
 
 # target to generate assembly for a file
 vk_setup.cpp.s:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/vk_setup.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/vk_setup.cpp.s
 .PHONY : vk_setup.cpp.s
 
 window.o: window.cpp.o
@@ -255,7 +423,7 @@ window.o: window.cpp.o
 
 # target to build an object file
 window.cpp.o:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/window.cpp.o
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/window.cpp.o
 .PHONY : window.cpp.o
 
 window.i: window.cpp.i
@@ -263,7 +431,7 @@ window.i: window.cpp.i
 
 # target to preprocess a source file
 window.cpp.i:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/window.cpp.i
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/window.cpp.i
 .PHONY : window.cpp.i
 
 window.s: window.cpp.s
@@ -271,7 +439,7 @@ window.s: window.cpp.s
 
 # target to generate assembly for a file
 window.cpp.s:
-	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/vulkan_guide.dir/build.make src/CMakeFiles/vulkan_guide.dir/window.cpp.s
+	cd /home/bigsmarty/Documents/bsEngine/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/bsEngine.dir/build.make src/CMakeFiles/bsEngine.dir/window.cpp.s
 .PHONY : window.cpp.s
 
 # Help Target
@@ -282,19 +450,40 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... vulkan_guide"
+	@echo "... bsEngine"
+	@echo "... bs_draw.o"
+	@echo "... bs_draw.i"
+	@echo "... bs_draw.s"
+	@echo "... bs_frametime.o"
+	@echo "... bs_frametime.i"
+	@echo "... bs_frametime.s"
+	@echo "... bs_load_shaders.o"
+	@echo "... bs_load_shaders.i"
+	@echo "... bs_load_shaders.s"
 	@echo "... bs_swapchain.o"
 	@echo "... bs_swapchain.i"
 	@echo "... bs_swapchain.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pipeline_builder.o"
+	@echo "... pipeline_builder.i"
+	@echo "... pipeline_builder.s"
+	@echo "... vk_commands.o"
+	@echo "... vk_commands.i"
+	@echo "... vk_commands.s"
 	@echo "... vk_engine.o"
 	@echo "... vk_engine.i"
 	@echo "... vk_engine.s"
 	@echo "... vk_initializers.o"
 	@echo "... vk_initializers.i"
 	@echo "... vk_initializers.s"
+	@echo "... vk_pipelines.o"
+	@echo "... vk_pipelines.i"
+	@echo "... vk_pipelines.s"
+	@echo "... vk_renderpass.o"
+	@echo "... vk_renderpass.i"
+	@echo "... vk_renderpass.s"
 	@echo "... vk_setup.o"
 	@echo "... vk_setup.i"
 	@echo "... vk_setup.s"

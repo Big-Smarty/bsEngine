@@ -15,7 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_impl_vulkan.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/imgui.dir/imgui/imgui_impl_vulkan.cpp.o"
   "/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui_widgets.cpp" "/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party/CMakeFiles/imgui.dir/imgui/imgui_widgets.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Clang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

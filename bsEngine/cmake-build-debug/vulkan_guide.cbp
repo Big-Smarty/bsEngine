@@ -4,7 +4,7 @@
 	<Project>
 		<Option title="vulkan_guide"/>
 		<Option makefile_is_custom="1"/>
-		<Option compiler="clang"/>
+		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\src\;"/>
 		<Build>
 			<Target title="all">
@@ -52,14 +52,15 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -74,14 +75,15 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -96,16 +98,17 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/imgui"/>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
 					<Add directory="/include/SDL2"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -120,16 +123,17 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/imgui"/>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
 					<Add directory="/include/SDL2"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -144,14 +148,15 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -166,14 +171,15 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/cmake-build-debug/third_party"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/tinyobjloader"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -188,7 +194,7 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/src"/>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
@@ -199,11 +205,12 @@
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
 					<Add directory="/include/SDL2"/>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/stb_image"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -218,7 +225,7 @@
 				<Option working_dir="/home/bigsmarty/Documents/bsEngine/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
-				<Option compiler="clang"/>
+				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/src"/>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/vkbootstrap"/>
@@ -229,11 +236,12 @@
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/SDL_PATH/include/SDL2"/>
 					<Add directory="/include/SDL2"/>
 					<Add directory="/home/bigsmarty/Documents/bsEngine/third_party/stb_image"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
-					<Add directory="/usr/bin/../lib64/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/../../../../include/c++/11.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/clang/12.0.1/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/11.1.0/include-fixed"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
@@ -244,37 +252,46 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp">
+			<Option target="vulkan_guide"/>
+		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/bs_swapchain.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/main.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
-		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/main.h">
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/main.hpp">
+			<Option target="vulkan_guide"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_commands.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_engine.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
-		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_engine.h">
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_engine.hpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_initializers.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
-		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_initializers.h">
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_initializers.hpp">
+			<Option target="vulkan_guide"/>
+		</Unit>
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_renderpass.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_setup.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
-		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_types.h">
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/vk_types.hpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/window.cpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
-		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/window.h">
+		<Unit filename="/home/bigsmarty/Documents/bsEngine/src/window.hpp">
 			<Option target="vulkan_guide"/>
 		</Unit>
 		<Unit filename="/home/bigsmarty/Documents/bsEngine/third_party/imgui/imgui.cpp">

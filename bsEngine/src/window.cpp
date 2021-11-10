@@ -2,7 +2,7 @@
 // Created by bigsmarty on 11/5/21.
 //
 
-#include "window.h"
+#include "main.hpp"
 
 using namespace std;
 
@@ -22,5 +22,7 @@ bsWindow::bsWindow()
             _windowExtent.height,
             window_flags
     );
+
+    SDL_SetWindowFullscreen(_window, window_flags);
 
 }

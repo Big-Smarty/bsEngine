@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../src/main.h
+../src/main.hpp
 iostream
 -
 vector
@@ -17,36 +17,40 @@ SDL2/SDL.h
 -
 SDL2/SDL_vulkan.h
 -
-vk_types.h
+vk_types.hpp
 -
-vk_initializers.h
+vk_initializers.hpp
 -
 vulkan/vulkan.h
 -
 VkBootstrap.h
 -
-vk_engine.h
+vk_engine.hpp
 -
-vk_types.h
+vk_types.hpp
 -
-vk_initializers.h
+vk_initializers.hpp
 -
-window.h
--
-
-../src/vk_engine.h
-main.h
+window.hpp
 -
 
-../src/vk_initializers.h
-main.h
+../src/vk_engine.hpp
+main.hpp
+../src/main.hpp
+window.hpp
+../src/window.hpp
+
+../src/vk_initializers.hpp
+main.hpp
+-
+vulkan/vulkan_core.h
 -
 
-../src/vk_types.h
+../src/vk_types.hpp
 
-../src/window.h
-main.h
--
+../src/window.hpp
+main.hpp
+../src/main.hpp
 
 ../third_party/vkbootstrap/VkBootstrap.h
 cassert
@@ -58,7 +62,9 @@ system_error
 vulkan/vulkan.h
 -
 
-/home/bigsmarty/Documents/vulkan-guide-starting-point/src/main.cpp
-main.h
+/home/bigsmarty/Documents/bsEngine/src/bs_draw.cpp
+main.hpp
+-
+vk_engine.hpp
 -
 
