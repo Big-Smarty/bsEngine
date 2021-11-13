@@ -58,7 +58,7 @@ extern "C" {
 struct VolkDeviceTable;
 
 /**
- * Initialize library by loading Vulkan loader; call this function before creating the Vulkan instance.
+ * Initialize library by resource_loading Vulkan loader; call this function before creating the Vulkan instance.
  *
  * Returns VK_SUCCESS on success and VK_ERROR_INITIALIZATION_FAILED otherwise.
  */
@@ -87,7 +87,7 @@ void volkLoadInstance(VkInstance instance);
 
 /**
  * Load global function pointers using application-created VkInstance; call this function after creating the Vulkan instance.
- * Skips loading device-based function pointers, requires usage of volkLoadDevice afterwards.
+ * Skips resource_loading device-based function pointers, requires usage of volkLoadDevice afterwards.
  */
 void volkLoadInstanceOnly(VkInstance instance);
 

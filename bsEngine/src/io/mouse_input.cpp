@@ -2,7 +2,7 @@
 // Created by bigsmarty on 11/13/21.
 //
 
-#include "mouse_input.h"
+#include "io/mouse_input.h"
 using namespace std;
 
 bool InputMouse::Initialize()
@@ -33,7 +33,7 @@ void InputMouse::Update()
 
     //update current state of the mouse
     m_uCurrentMouseState = SDL_GetMouseState(&m_iCurrentCoordX, &m_iCurrentCoordY);
-    cout << "Current x coordinate: " << m_iCurrentCoordX << " current y coordinate: " << m_iCurrentCoordY << endl;
+    //cout << "Current x coordinate: " << m_iCurrentCoordX << " current y coordinate: " << m_iCurrentCoordY << endl;
 
     //set wheel back to 0
     m_iWheelX = 0;

@@ -487,7 +487,7 @@ struct ObjReaderConfig {
   ///
   /// Search path to .mtl file.
   /// Default = "" = search from the same directory of .obj file.
-  /// Valid only when loading .obj from a file.
+  /// Valid only when resource_loading .obj from a file.
   ///
   std::string mtl_search_path;
 
@@ -560,7 +560,7 @@ class ObjReader {
 /// Loads .obj from a file.
 /// 'attrib', 'shapes' and 'materials' will be filled with parsed shape data
 /// 'shapes' will be filled with parsed shape data
-/// Returns true when loading .obj become success.
+/// Returns true when resource_loading .obj become success.
 /// Returns warning message into `warn`, and error message into `err`
 /// 'mtl_basedir' is optional, and used for base directory for .mtl file.
 /// In default(`NULL'), .mtl file is searched from an application's working
@@ -578,7 +578,7 @@ bool LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
 /// Loads .obj from a file with custom user callback.
 /// .mtl is loaded as usual and parsed material_t data will be passed to
 /// `callback.mtllib_cb`.
-/// Returns true when loading .obj/.mtl become success.
+/// Returns true when resource_loading .obj/.mtl become success.
 /// Returns warning message into `warn`, and error message into `err`
 /// See `examples/callback_api/` for how to use this function.
 bool LoadObjWithCallback(std::istream &inStream, const callback_t &callback,
@@ -588,7 +588,7 @@ bool LoadObjWithCallback(std::istream &inStream, const callback_t &callback,
 
 /// Loads object from a std::istream, uses `readMatFn` to retrieve
 /// std::istream for materials.
-/// Returns true when loading .obj become success.
+/// Returns true when resource_loading .obj become success.
 /// Returns warning and error message into `err`
 bool LoadObj(attrib_t *attrib, std::vector<shape_t> *shapes,
              std::vector<material_t> *materials, std::string *warn,

@@ -31,8 +31,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_vulkan.h>
 
-#include <vk_types.h>
-#include <vk_initializers.h>
+#include <setup/vk_types.h>
+#include <setup/vk_initializers.h>
 #include <vulkan/vulkan.h>
 
 #include <VkBootstrap.h>

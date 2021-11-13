@@ -1,5 +1,5 @@
 ﻿
-#include <vk_engine.h>
+#include <base_engine/vk_engine.h>
 
 using namespace std;
 
@@ -44,13 +44,13 @@ void bsEngine::cleanup()
 {	
 	if (_isInitialized) {
 
-        vkWaitForFences(_logicalDevice, 1, &_renderFence, true, 1000000000);
+        vkWaitForFences(vkEssentials._logicalDevice, 1, &vkEssentials._renderFence, true, 1000000000);
 
         _mainDeletionQueue.flush();
 
-        vkDestroySurfaceKHR(_instance, _surface, nullptr);
-        vkDestroyDevice(_logicalDevice, nullptr);
-        vkDestroyInstance(_instance, nullptr);
+        vkDestroySurfaceKHR(vkEssentials._instance, vkEssentials._surface, nullptr);
+        vkDestroyDevice(vkEssentials._logicalDevice, nullptr);
+        vkDestroyInstance(vkEssentials._instance, nullptr);
 		
 		SDL_DestroyWindow(_bs_window._window);
 
@@ -99,10 +99,10 @@ void bsEngine::init_sync_structures()
             .flags = VK_FENCE_CREATE_SIGNALED_BIT
     };
 
-    VK_CHECK(vkCreateFence(_logicalDevice, &fenceCreateInfo, nullptr, &_renderFence));
+    VK_CHECK(vkCreateFence(vkEssentials._logicalDevice, &fenceCreateInfo, nullptr, &vkEssentials._renderFence));
     _mainDeletionQueue.push_function([=]()
                                      {
-                                         vkDestroyFence(_logicalDevice, _renderFence, nullptr);
+                                         vkDestroyFence(vkEssentials._logicalDevice, vkEssentials._renderFence, nullptr);
                                      });
 
     VkSemaphoreCreateInfo semaphoreCreateInfo = {
@@ -112,13 +112,13 @@ void bsEngine::init_sync_structures()
         .flags = 0
     };
 
-    VK_CHECK(vkCreateSemaphore(_logicalDevice, &semaphoreCreateInfo, nullptr, &_renderSemaphore));
-    VK_CHECK(vkCreateSemaphore(_logicalDevice, &semaphoreCreateInfo, nullptr, &_presentSemaphore));
+    VK_CHECK(vkCreateSemaphore(vkEssentials._logicalDevice, &semaphoreCreateInfo, nullptr, &vkEssentials._renderSemaphore));
+    VK_CHECK(vkCreateSemaphore(vkEssentials._logicalDevice, &semaphoreCreateInfo, nullptr, &vkEssentials._presentSemaphore));
 
     _mainDeletionQueue.push_function([=]()
                                      {
-                                         vkDestroySemaphore(_logicalDevice, _presentSemaphore, nullptr);
-                                         vkDestroySemaphore(_logicalDevice, _renderSemaphore, nullptr);
+                                         vkDestroySemaphore(vkEssentials._logicalDevice, vkEssentials._presentSemaphore, nullptr);
+                                         vkDestroySemaphore(vkEssentials._logicalDevice, vkEssentials._renderSemaphore, nullptr);
                                      });
 
 }

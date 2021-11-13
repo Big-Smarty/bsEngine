@@ -1,5 +1,5 @@
 #include "main.h"
-#include "vk_engine.h"
+#include "base_engine/vk_engine.h"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ std::optional<VkShaderModule> bsEngine::load_shader(const char* shaderPath, VkSh
     VkShaderModuleCreateInfo shaderInfo = vkinit::createShaderInfo(shaderSize, shaderBuffer.data());
     cout << "Shadersize of shaderinfo: " << shaderInfo.codeSize << endl;
 
-    vkCreateShaderModule(_logicalDevice, &shaderInfo, nullptr, outShaderModule);
+    vkCreateShaderModule(vkEssentials._logicalDevice, &shaderInfo, nullptr, outShaderModule);
 
     return *outShaderModule;
 

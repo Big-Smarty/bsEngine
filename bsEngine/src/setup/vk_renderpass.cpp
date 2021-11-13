@@ -3,7 +3,7 @@
 //
 
 #include <main.h>
-#include <vk_engine.h>
+#include <base_engine/vk_engine.h>
 
 void bsEngine::init_default_renderpass()
 {
@@ -11,7 +11,7 @@ void bsEngine::init_default_renderpass()
     //the color attachment to use by the renderpass
     VkAttachmentDescription color_attachment = {
 
-            .format = _swapchainImageFormat, //the format required to be used in the swapchain
+            .format = vkEssentials._swapchainImageFormat, //the format required to be used in the swapchain
             .samples = VK_SAMPLE_COUNT_1_BIT, //no msaa
             .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR, //clear the attachment when its loaded
             .storeOp = VK_ATTACHMENT_STORE_OP_STORE, //store it when the renderpass ends
@@ -67,10 +67,10 @@ void bsEngine::init_default_renderpass()
             .pSubpasses = &subpass
     };
 
-    VK_CHECK(vkCreateRenderPass(_logicalDevice, &render_pass_info, nullptr, &_renderPass));
+    VK_CHECK(vkCreateRenderPass(vkEssentials._logicalDevice, &render_pass_info, nullptr, &vkEssentials._renderPass));
 
     _mainDeletionQueue.push_function([=](){
-        vkDestroyRenderPass(_logicalDevice, _renderPass, nullptr);
+        vkDestroyRenderPass(vkEssentials._logicalDevice, vkEssentials._renderPass, nullptr);
     });
 
 }
@@ -82,7 +82,7 @@ void bsEngine::init_framebuffer()
 
             .sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO,
             .pNext = nullptr,
-            .renderPass = _renderPass,
+            .renderPass = vkEssentials._renderPass,
             .attachmentCount = 1,
             .width = _bs_window._windowExtent.width,
             .height = _bs_window._windowExtent.height,
@@ -90,23 +90,23 @@ void bsEngine::init_framebuffer()
     };
 
     //grab the amount of images in the swapchain
-    const uint32_t swapchain_imagecount = _swapchainImages.size();
-    _framebuffers = std::vector<VkFramebuffer>(swapchain_imagecount);
+    const uint32_t swapchain_imagecount = vkEssentials._swapchainImages.size();
+    vkEssentials._framebuffers = std::vector<VkFramebuffer>(swapchain_imagecount);
 
     for (int i = 0; i < swapchain_imagecount; i++)
     {
         VkImageView attachments[2];
-        attachments[0] = _swapchainImageViews[i];
+        attachments[0] = vkEssentials._swapchainImageViews[i];
         attachments[1] = _depthImageView;
 
         fb_info.attachmentCount = 2;
         fb_info.pAttachments = attachments;
-        VK_CHECK(vkCreateFramebuffer(_logicalDevice, &fb_info, nullptr, &_framebuffers[i]));
+        VK_CHECK(vkCreateFramebuffer(vkEssentials._logicalDevice, &fb_info, nullptr, &vkEssentials._framebuffers[i]));
 
         _mainDeletionQueue.push_function([=]()
                                          {
-                                             vkDestroyFramebuffer(_logicalDevice, _framebuffers[i], nullptr);
-                                             vkDestroyImageView(_logicalDevice, _swapchainImageViews[i], nullptr);
+                                             vkDestroyFramebuffer(vkEssentials._logicalDevice, vkEssentials._framebuffers[i], nullptr);
+                                             vkDestroyImageView(vkEssentials._logicalDevice, vkEssentials._swapchainImageViews[i], nullptr);
                                          });
     };
 

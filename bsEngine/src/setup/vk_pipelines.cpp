@@ -3,9 +3,9 @@
 //
 
 #include "main.h"
-#include "vk_engine.h"
-#include "pipeline_builder.h"
-#include "vk_initializers.h"
+#include "base_engine/vk_engine.h"
+#include "setup/pipeline_builder.h"
+#include "setup/vk_initializers.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ void bsEngine::init_pipelines() {
     meshPipelineLayoutInfo.pushConstantRangeCount = 1;
     meshPipelineLayoutInfo.pPushConstantRanges = &pushConstant;
 
-    VK_CHECK(vkCreatePipelineLayout(_logicalDevice, &meshPipelineLayoutInfo, nullptr, &_meshPipelineLayout));
+    VK_CHECK(vkCreatePipelineLayout(vkEssentials._logicalDevice, &meshPipelineLayoutInfo, nullptr, &_meshPipelineLayout));
 
     VkShaderModule RGBfragmentModule;
     if (load_shader("../shaders/rgb_triangle.frag.spv", &RGBfragmentModule) != nullopt) {
@@ -58,7 +58,7 @@ void bsEngine::init_pipelines() {
 
     VkPipelineLayoutCreateInfo pipelineLayoutInfo = vkinit::pipelineLayoutCreateInfo();
 
-    VK_CHECK(vkCreatePipelineLayout(_logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
+    VK_CHECK(vkCreatePipelineLayout(vkEssentials._logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
 
     PipelineBuilder pipelineBuilder;
 
@@ -87,18 +87,14 @@ void bsEngine::init_pipelines() {
     pipelineBuilder.colorBlendInfo = vkinit::colorBlendStateCreateInfo(&attachment);
     pipelineBuilder.pipelineLayout = genericPipelineLayout;
 
-    _redTrianglePipeline = pipelineBuilder.build_pipeline(_logicalDevice, _renderPass);
-
     pipelineBuilder.shaderStages.clear();
 
     pipelineBuilder.shaderStages.push_back(vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_VERTEX_BIT, RGBvertexModule));
     pipelineBuilder.shaderStages.push_back(vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_FRAGMENT_BIT, RGBfragmentModule));
 
-    VK_CHECK(vkCreatePipelineLayout(_logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
+    VK_CHECK(vkCreatePipelineLayout(vkEssentials._logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
 
     pipelineBuilder.pipelineLayout = genericPipelineLayout;
-
-    RGBTrianglePipeline = pipelineBuilder.build_pipeline(_logicalDevice, _renderPass);
 
     VertexInputDescription vertexDescription = Vertex::getVertexDescription();
 
@@ -135,23 +131,21 @@ void bsEngine::init_pipelines() {
     pipelineBuilder.pipelineLayout = _meshPipelineLayout;
 
     //build the mesh triangle pipeline
-    _meshPipeline = pipelineBuilder.build_pipeline(_logicalDevice, _renderPass);
+    _meshPipeline = pipelineBuilder.build_pipeline(vkEssentials._logicalDevice, vkEssentials._renderPass);
     create_material(_meshPipeline, _meshPipelineLayout, "defaultmesh");
 
-    vkDestroyShaderModule(_logicalDevice, meshVertShader, nullptr);
-    vkDestroyShaderModule(_logicalDevice, _redfragmentModule, nullptr);
-    vkDestroyShaderModule(_logicalDevice, _redvertexModule, nullptr);
-    vkDestroyShaderModule(_logicalDevice, RGBfragmentModule, nullptr);
-    vkDestroyShaderModule(_logicalDevice, RGBvertexModule, nullptr);
+    vkDestroyShaderModule(vkEssentials._logicalDevice, meshVertShader, nullptr);
+    vkDestroyShaderModule(vkEssentials._logicalDevice, _redfragmentModule, nullptr);
+    vkDestroyShaderModule(vkEssentials._logicalDevice, _redvertexModule, nullptr);
+    vkDestroyShaderModule(vkEssentials._logicalDevice, RGBfragmentModule, nullptr);
+    vkDestroyShaderModule(vkEssentials._logicalDevice, RGBvertexModule, nullptr);
 
     _mainDeletionQueue.push_function([=]()
                                      {
-                                         vkDestroyPipeline(_logicalDevice, _redTrianglePipeline,nullptr);
-                                         vkDestroyPipeline(_logicalDevice, RGBTrianglePipeline, nullptr);
-                                         vkDestroyPipeline(_logicalDevice, _meshPipeline, nullptr);
+                                         vkDestroyPipeline(vkEssentials._logicalDevice, _meshPipeline, nullptr);
 
-                                         vkDestroyPipelineLayout(_logicalDevice, genericPipelineLayout, nullptr);
-                                         vkDestroyPipelineLayout(_logicalDevice, _meshPipelineLayout, nullptr);
+                                         vkDestroyPipelineLayout(vkEssentials._logicalDevice, genericPipelineLayout, nullptr);
+                                         vkDestroyPipelineLayout(vkEssentials._logicalDevice, _meshPipelineLayout, nullptr);
                                      });
 
     cout << "IT FUCKING WORKS\n";

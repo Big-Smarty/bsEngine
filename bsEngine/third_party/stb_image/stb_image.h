@@ -158,7 +158,7 @@ RECENT REVISION HISTORY:
 //       3           red, green, blue
 //       4           red, green, blue, alpha
 //
-// If image loading fails for any reason, the return value will be NULL,
+// If image resource_loading fails for any reason, the return value will be NULL,
 // and *x, *y, *channels_in_file will be unchanged. The function
 // stbi_failure_reason() can be queried for an extremely brief, end-user
 // unfriendly explanation of why the load failed. Define STBI_NO_FAILURE_STRINGS
@@ -237,7 +237,7 @@ RECENT REVISION HISTORY:
 //
 // HDR image support   (disable by defining STBI_NO_HDR)
 //
-// stb_image supports loading HDR images in general, and currently the Radiance
+// stb_image supports resource_loading HDR images in general, and currently the Radiance
 // .HDR file format specifically. You can still load any file through the existing
 // interface; if you attempt to load an HDR file, it will be automatically remapped
 // to LDR, assuming gamma 2.2 and an arbitrary scale factor defaulting to 1;
@@ -249,7 +249,7 @@ RECENT REVISION HISTORY:
 // (note, do not use _inverse_ constants; stbi_image will invert them
 // appropriately).
 //
-// Additionally, there is a new, parallel interface for loading files as
+// Additionally, there is a new, parallel interface for resource_loading files as
 // (linear) floats to preserve the full dynamic range:
 //
 //    float *data = stbi_loadf(filename, &x, &y, &n, 0);
@@ -1816,7 +1816,7 @@ static stbi_uc *stbi__hdr_to_ldr(float   *data, int x, int y, int comp)
 //      - doesn't support delayed output of y-dimension
 //      - simple interface (only one output format: 8-bit interleaved RGB)
 //      - doesn't try to recover corrupt jpegs
-//      - doesn't allow partial loading, loading multiple at once
+//      - doesn't allow partial resource_loading, resource_loading multiple at once
 //      - still fast on x86 (copying globals into locals doesn't help x86)
 //      - allocates lots of intermediate memory (full size of all components)
 //        - non-interleaved case requires this anyway
@@ -6733,7 +6733,7 @@ static void *stbi__load_gif_main(stbi__context *s, int **delays, int *x, int *y,
       STBI_FREE(g.history);
       STBI_FREE(g.background);
 
-      // do the final conversion after loading everything;
+      // do the final conversion after resource_loading everything;
       if (req_comp && req_comp != 4)
          out = stbi__convert_format(out, 4, req_comp, layers * g.w, g.h);
 
@@ -6766,7 +6766,7 @@ static void *stbi__gif_load(stbi__context *s, int *x, int *y, int *comp, int req
       STBI_FREE(g.out);
    }
 
-   // free buffers needed for multiple frame loading;
+   // free buffers needed for multiple frame resource_loading;
    STBI_FREE(g.history);
    STBI_FREE(g.background);
 
@@ -7508,7 +7508,7 @@ STBIDEF int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *c, void *user
               fix gcc struct-initialization warning
       1.39  (2014-06-15)
               fix to TGA optimization when req_comp != number of components in TGA;
-              fix to GIF loading because BMP wasn't rewinding (whoops, no GIFs in my test suite)
+              fix to GIF resource_loading because BMP wasn't rewinding (whoops, no GIFs in my test suite)
               add support for BMP version 5 (more ignored fields)
       1.38  (2014-06-06)
               suppress MSVC warnings on integer casts truncating values
@@ -7579,7 +7579,7 @@ STBIDEF int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *c, void *user
       1.08    Thatcher Ulrich's PSD code integrated by Nicolas Schulz
       1.07    attempt to fix C++ warning/errors again
       1.06    attempt to fix C++ warning/errors again
-      1.05    fix TGA loading to return correct *comp and use good luminance calc
+      1.05    fix TGA resource_loading to return correct *comp and use good luminance calc
       1.04    default float alpha is 1, not 255; use 'void *' for stbi_image_free
       1.03    bugfixes to STBI_NO_STDIO, STBI_NO_HDR
       1.02    support for (subset of) HDR files, float interface for preferred access to them

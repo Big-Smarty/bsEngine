@@ -5,7 +5,7 @@
 #pragma once
 
 #include <main.h>
-#include <vk_types.h>
+#include <setup/vk_types.h>
 //#include <vk_engine.h>
 #include <glm/vec3.hpp>
 

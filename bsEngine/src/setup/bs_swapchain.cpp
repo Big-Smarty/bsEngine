@@ -3,14 +3,14 @@
 //
 
 #include "main.h"
-#include <vk_engine.h>
+#include <base_engine/vk_engine.h>
 
 using namespace std;
 
 void bsEngine::init_swapchain()
 {
 
-    vkb::SwapchainBuilder swapchainBuilder{_chosenGPU, _logicalDevice, _surface};
+    vkb::SwapchainBuilder swapchainBuilder{vkEssentials._chosenGPU, vkEssentials._logicalDevice, vkEssentials._surface};
 
     vkb::Swapchain vkbSwapchain = swapchainBuilder
             .use_default_format_selection()
@@ -20,17 +20,17 @@ void bsEngine::init_swapchain()
             .value();
 
 
-    vkGetPhysicalDeviceSurfaceCapabilitiesKHR(_chosenGPU, _surface, &_surfaceCapabilities);
-    cout << "max image count of the surface:" << _surfaceCapabilities.maxImageCount << endl;
+    vkGetPhysicalDeviceSurfaceCapabilitiesKHR(vkEssentials._chosenGPU, vkEssentials._surface, &vkEssentials._surfaceCapabilities);
+    cout << "max image count of the surface:" << vkEssentials._surfaceCapabilities.maxImageCount << endl;
 
-    vkbSwapchain.image_count = _surfaceCapabilities.maxImageCount;
+    vkbSwapchain.image_count = vkEssentials._surfaceCapabilities.maxImageCount;
 
     //store the swapchain and its images
-    _swapchain = vkbSwapchain.swapchain;
-    _swapchainImages = vkbSwapchain.get_images().value();
-    _swapchainImageViews = vkbSwapchain.get_image_views().value();
+    vkEssentials._swapchain = vkbSwapchain.swapchain;
+    vkEssentials._swapchainImages = vkbSwapchain.get_images().value();
+    vkEssentials._swapchainImageViews = vkbSwapchain.get_image_views().value();
 
-    _swapchainImageFormat = vkbSwapchain.image_format;
+    vkEssentials._swapchainImageFormat = vkbSwapchain.image_format;
 
     VkExtent3D depthImageExtent =
             {
@@ -54,13 +54,13 @@ void bsEngine::init_swapchain()
 
     VkImageViewCreateInfo dview_info = vkinit::imageViewCreateInfo(_depthFormat, _depthImage._image, VK_IMAGE_ASPECT_DEPTH_BIT);
 
-    VK_CHECK(vkCreateImageView(_logicalDevice, &dview_info, nullptr, &_depthImageView));
+    VK_CHECK(vkCreateImageView(vkEssentials._logicalDevice, &dview_info, nullptr, &_depthImageView));
 
     _mainDeletionQueue.push_function([=]()
     {
-        vkDestroySwapchainKHR(_logicalDevice, _swapchain, nullptr);
+        vkDestroySwapchainKHR(vkEssentials._logicalDevice, vkEssentials._swapchain, nullptr);
 
-        vkDestroyImageView(_logicalDevice, _depthImageView, nullptr);
+        vkDestroyImageView(vkEssentials._logicalDevice, _depthImageView, nullptr);
         vmaDestroyImage(_allocator, _depthImage._image, _depthImage._allocation);
         });
 

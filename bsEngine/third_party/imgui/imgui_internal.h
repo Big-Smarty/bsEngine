@@ -1071,7 +1071,7 @@ struct ImGuiWindowSettings
     ImVec2ih    Pos;
     ImVec2ih    Size;
     bool        Collapsed;
-    bool        WantApply;      // Set when loaded from .ini data (to enable merging/loading .ini data into an already running context)
+    bool        WantApply;      // Set when loaded from .ini data (to enable merging/resource_loading .ini data into an already running context)
 
     ImGuiWindowSettings()       { ID = 0; Pos = Size = ImVec2ih(0, 0); Collapsed = WantApply = false; }
     char* GetName()             { return (char*)(this + 1); }

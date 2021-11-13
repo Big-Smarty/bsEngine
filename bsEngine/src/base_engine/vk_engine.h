@@ -4,13 +4,13 @@
 #pragma once
 
 #include "main.h"
-#include "window.h"
-#include "vk_types.h"
+#include "windowing/window.h"
+#include "setup/vk_types.h"
 
 #include <glm/glm.hpp>
 #include "vk_mem_alloc.h"
-#include <vk_mesh.h>
-#include <mouse_input.h>
+#include <resource_loading/vk_mesh.h>
+#include <io/mouse_input.h>
 
 struct CamState
 {
@@ -55,6 +55,42 @@ struct MeshPushConstants
     glm::mat4 render_matrix;
 };
 
+struct VulkanEssentials
+{
+    VkInstance _instance; //load core vulkan structures
+    vkb::InstanceBuilder builder;
+
+    VkDebugUtilsMessengerEXT _debug_messenger; //debug messenger
+
+    VkPhysicalDevice _chosenGPU; //handle to the chosen GPU
+    VkDevice _logicalDevice; //logical vulkan device
+
+    VkSurfaceKHR _surface; //surface used to display things on
+    VkSurfaceCapabilitiesKHR _surfaceCapabilities;
+
+    VkSwapchainKHR _swapchain; //creates the swapchain
+    VkFormat _swapchainImageFormat; //variable to store the image format of each image
+    std::vector<VkImage> _swapchainImages; //swapchain array to store the images
+    std::vector<VkImageView> _swapchainImageViews; //array to store the image vires from the swapchain
+
+    VkQueue _graphicsQueue; //queue which is going to have commands submitted to
+    uint32_t _graphicsQueueFamily; //family of that queue
+
+    VkCommandPool _commandPool; //the commandpool to manage command buffer and stuff
+    VkCommandBuffer _mainCommandBuffer; //commandbuffer to store commands
+
+    VkRenderPass  _renderPass;
+    std::vector<VkFramebuffer> _framebuffers;
+
+    //sync stuff
+    VkSemaphore _presentSemaphore, _renderSemaphore;
+    VkFence _renderFence;
+};
+
+struct AdditionalVariables
+{
+    std::chrono::time_point<std::chrono::high_resolution_clock> last_time;
+};
 
 struct DeletionQueue
 {
@@ -82,43 +118,11 @@ struct DeletionQueue
 class bsEngine {
 public:
 
-    //VARIABLES
-    //basic setup variables
-    VkInstance _instance; //load core vulkan structures
-    VkDebugUtilsMessengerEXT _debug_messenger; //debug messenger
-    VkPhysicalDevice _chosenGPU; //handle to the chosen GPU
-    VkDevice _logicalDevice; //logical vulkan device
-    VkSurfaceKHR _surface; //surface used to display things on
+    AdditionalVariables additions;
+    VulkanEssentials vkEssentials;
     bsWindow _bs_window;
 
-    VkSurfaceCapabilitiesKHR _surfaceCapabilities = {};
-
-    //needed for frametime calculator
-    std::chrono::time_point<std::chrono::high_resolution_clock> last_time;
-
-    //swapchain variables
-    VkSwapchainKHR _swapchain; //creates the swapchain
-    VkFormat _swapchainImageFormat; //variable to store the image format of each image
-    std::vector<VkImage> _swapchainImages; //swapchain array to store the images
-    std::vector<VkImageView> _swapchainImageViews; //array to store the image vires from the swapchain
-    vkb::InstanceBuilder builder;
-
-    VkQueue _graphicsQueue; //queue which is going to have commands submitted to
-    uint32_t _graphicsQueueFamily; //family of that queue
-
-    VkCommandPool _commandPool; //the commandpool to manage command buffer and stuff
-    VkCommandBuffer _mainCommandBuffer; //commandbuffer to store commands
-
-    VkRenderPass  _renderPass;
-    std::vector<VkFramebuffer> _framebuffers;
-
-    //sync stuff
-    VkSemaphore _presentSemaphore, _renderSemaphore;
-    VkFence _renderFence;
-
     VkPipelineLayout genericPipelineLayout;
-    VkPipeline _redTrianglePipeline;
-    VkPipeline RGBTrianglePipeline;
 
     VkPipelineLayout _meshPipelineLayout;
     VkPipeline _meshPipeline;

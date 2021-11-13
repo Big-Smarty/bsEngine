@@ -3,7 +3,7 @@
 //
 
 #include "main.h"
-#include <window.h>
+#include <windowing/window.h>
 
 using namespace std;
 

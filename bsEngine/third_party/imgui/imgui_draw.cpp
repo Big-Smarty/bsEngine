@@ -1965,7 +1965,7 @@ bool    ImFontAtlasBuildWithStbTruetype(ImFontAtlas* atlas)
     memset(src_tmp_array.Data, 0, (size_t)src_tmp_array.size_in_bytes());
     memset(dst_tmp_array.Data, 0, (size_t)dst_tmp_array.size_in_bytes());
 
-    // 1. Initialize font loading structure, check font data validity
+    // 1. Initialize font resource_loading structure, check font data validity
     for (int src_i = 0; src_i < atlas->ConfigData.Size; src_i++)
     {
         ImFontBuildSrcData& src_tmp = src_tmp_array[src_i];
@@ -1981,7 +1981,7 @@ bool    ImFontAtlasBuildWithStbTruetype(ImFontAtlas* atlas)
         if (src_tmp.DstIndex == -1)
             return false;
 
-        // Initialize helper structure for font loading and verify that the TTF/OTF data is correct
+        // Initialize helper structure for font resource_loading and verify that the TTF/OTF data is correct
         const int font_offset = stbtt_GetFontOffsetForIndex((unsigned char*)cfg.FontData, cfg.FontNo);
         IM_ASSERT(font_offset >= 0 && "FontData is incorrect, or FontNo cannot be found.");
         if (!stbtt_InitFont(&src_tmp.FontInfo, (unsigned char*)cfg.FontData, font_offset))

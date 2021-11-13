@@ -173,7 +173,7 @@ struct SystemInfo {
 	SystemInfo ();
 
 	public:
-    // Use get_system_info to create a SystemInfo struct. This is because loading vulkan could fail.
+    // Use get_system_info to create a SystemInfo struct. This is because resource_loading vulkan could fail.
 	static detail::Result<SystemInfo> get_system_info ();
 	static detail::Result<SystemInfo>  get_system_info (PFN_vkGetInstanceProcAddr fp_vkGetInstanceProcAddr);
 

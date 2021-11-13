@@ -2,11 +2,11 @@
 # Add source to this project's executable.
 add_executable(bsEngine
     main.cpp
-    vk_engine.cpp
-        vk_engine.h
-        vk_types.h
-    vk_initializers.cpp
-        vk_initializers.h main.h window.cpp window.h vk_setup.cpp bs_swapchain.cpp vk_commands.cpp vk_renderpass.cpp bs_draw.cpp bs_frametime.cpp bs_load_shaders.cpp vk_pipelines.cpp pipeline_builder.cpp pipeline_builder.h vk_mesh.cpp vk_mesh.h mesh_loading.cpp object_rendering.cpp bs_scene.cpp bs_camera.cpp mouse_input.cpp mouse_input.h)
+        base_engine/vk_engine.cpp
+        base_engine/vk_engine.h
+        setup/vk_types.h
+        setup/vk_initializers.cpp
+        setup/vk_initializers.h main.h windowing/window.cpp windowing/window.h setup/vk_setup.cpp setup/bs_swapchain.cpp setup/vk_commands.cpp setup/vk_renderpass.cpp base_engine/bs_draw.cpp additions/bs_frametime.cpp resource_loading/bs_load_shaders.cpp setup/vk_pipelines.cpp setup/pipeline_builder.cpp setup/pipeline_builder.h resource_loading/vk_mesh.cpp resource_loading/vk_mesh.h resource_loading/mesh_loading.cpp base_engine/object_rendering.cpp resource_loading/bs_scene.cpp io/bs_camera.cpp io/mouse_input.cpp io/mouse_input.h)
 
 
 set_property(TARGET bsEngine PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:vulkan_guide>")
