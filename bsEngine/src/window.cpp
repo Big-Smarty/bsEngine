@@ -2,7 +2,8 @@
 // Created by bigsmarty on 11/5/21.
 //
 
-#include "main.hpp"
+#include "main.h"
+#include <window.h>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ bsWindow::bsWindow()
 {
 
     // We initialize SDL and create a window with it.
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_EVERYTHING);
 
     SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_VULKAN);
 
@@ -23,6 +24,6 @@ bsWindow::bsWindow()
             window_flags
     );
 
-    SDL_SetWindowFullscreen(_window, window_flags);
+    SDL_SetRelativeMouseMode(relativeMouseMode);
 
 }

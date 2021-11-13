@@ -1,4 +1,18 @@
-﻿#include <vk_initializers.hpp>
+﻿#include <vk_initializers.h>
+
+VkRenderPassBeginInfo vkinit::renderPassBeginInfo(VkRenderPass pass, VkExtent2D extent, VkFramebuffer frameBuffer){
+
+    VkRenderPassBeginInfo rpInfo = {};
+    rpInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+    rpInfo.pNext = nullptr;
+
+    rpInfo.renderPass = pass;
+    rpInfo.renderArea.offset.x = 0;
+    rpInfo.renderArea.offset.y = 0;
+    rpInfo.renderArea.extent = extent;
+    rpInfo.framebuffer = frameBuffer;
+
+}
 
 VkCommandPoolCreateInfo vkinit::commandPoolCreateInfo(uint32_t queueFamilyIndex, VkCommandPoolCreateFlags flags)
 {
@@ -170,7 +184,7 @@ VkPipelineMultisampleStateCreateInfo vkinit::multisampleStateCreateInfoInfo()
 
 }
 
-VkPipelineDepthStencilStateCreateInfo vkinit::depthStencilStateCreateInfo()
+VkPipelineDepthStencilStateCreateInfo vkinit::depthStencilStateCreateInfo(bool bDepthTest, bool bDepthWrite, VkCompareOp compareOp)
 {
 
     VkPipelineDepthStencilStateCreateInfo info = {
@@ -178,13 +192,13 @@ VkPipelineDepthStencilStateCreateInfo vkinit::depthStencilStateCreateInfo()
             .sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO,
             .pNext = nullptr,
             .flags = 0,
-            .depthTestEnable = VK_FALSE,
-            .depthWriteEnable = VK_FALSE,
-            .depthCompareOp = VK_COMPARE_OP_NEVER,
+            .depthTestEnable = bDepthTest ? VK_TRUE : VK_FALSE,
+            .depthWriteEnable = bDepthWrite ? VK_TRUE : VK_FALSE,
+            .depthCompareOp = bDepthTest ? compareOp : VK_COMPARE_OP_ALWAYS,
             .depthBoundsTestEnable = VK_FALSE,
             .stencilTestEnable = VK_FALSE,
             .minDepthBounds = 0.0f,
-            .maxDepthBounds = 0.0f
+            .maxDepthBounds = 1.0f
     };
 
     return info;
@@ -250,6 +264,50 @@ VkPipelineLayoutCreateInfo vkinit::pipelineLayoutCreateInfo()
             .pSetLayouts = nullptr,
             .pushConstantRangeCount = 0,
             .pPushConstantRanges = nullptr
+    };
+
+    return info;
+
+}
+
+VkImageCreateInfo vkinit::imageCreateInfo(VkFormat format, VkImageUsageFlags usageFlags, VkExtent3D extent)
+{
+
+    VkImageCreateInfo info = {
+
+            .sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
+            .pNext = nullptr,
+            .imageType = VK_IMAGE_TYPE_2D,
+            .format = format,
+            .extent = extent,
+            .mipLevels = 1,
+            .arrayLayers = 1,
+            .samples = VK_SAMPLE_COUNT_1_BIT,
+            .tiling = VK_IMAGE_TILING_OPTIMAL,
+            .usage = usageFlags
+    };
+
+    return info;
+
+}
+
+VkImageViewCreateInfo vkinit::imageViewCreateInfo(VkFormat format, VkImage image, VkImageAspectFlags aspectFlags)
+{
+
+    VkImageViewCreateInfo info = {
+
+            .sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO,
+            .pNext = nullptr,
+            .image = image,
+            .viewType = VK_IMAGE_VIEW_TYPE_2D,
+            .format = format,
+            .subresourceRange = {
+                    .baseMipLevel = 0,
+                    .levelCount = 1,
+                    .baseArrayLayer = 0,
+                    .aspectMask = aspectFlags,
+                    .layerCount = 1,
+            }
     };
 
     return info;

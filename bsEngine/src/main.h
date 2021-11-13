@@ -20,6 +20,11 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <optional>
+#include <chrono>
+#include <fstream>
+#include <functional>
+#include <deque>
 
 //THIRD PARTY LIBRARIES
 
@@ -31,9 +36,3 @@
 #include <vulkan/vulkan.h>
 
 #include <VkBootstrap.h>
-
-//CUSTOM HEADERS
-#include <vk_engine.h>
-#include <vk_types.h>
-#include <vk_initializers.h>
-#include <window.h>

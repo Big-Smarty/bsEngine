@@ -2,7 +2,8 @@
 // Created by bigsmarty on 11/5/21.
 //
 
-#include "main.hpp"
+#include "main.h"
+#include <vk_engine.h>
 
 void bsEngine::init_commands()
 {
@@ -14,5 +15,10 @@ void bsEngine::init_commands()
 
     VkCommandBufferAllocateInfo cmdAllocInfo = vkinit::commandBufferAllocateInfo(_commandPool, 1);
     VK_CHECK(vkAllocateCommandBuffers(_logicalDevice, &cmdAllocInfo, &_mainCommandBuffer));
+
+    _mainDeletionQueue.push_function([=]()
+                       {
+                           vkDestroyCommandPool(_logicalDevice, _commandPool, nullptr);
+                       });
 
 }

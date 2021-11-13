@@ -1,8 +1,0 @@
-/opt/clion/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/bigsmarty/Documents/bsEngine
--- BUILDING SHADER
--- /home/bigsmarty/Documents/bsEngine/shaders/triangle.frag
--- BUILDING SHADER
--- /home/bigsmarty/Documents/bsEngine/shaders/triangle.vert
--- Configuring done
--- Generating done
--- Build files have been written to: /home/bigsmarty/Documents/bsEngine/cmake-build-debug

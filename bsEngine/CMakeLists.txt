@@ -7,8 +7,8 @@ project ("bsEngine")
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_FLAGS="-fsanitize=address,undefined")
-#set(CMAKE_CXX_FLAGS -fprofile-generate)
+set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+set (CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
 
 find_package(Vulkan REQUIRED)
 

@@ -2,7 +2,11 @@
 // Created by bigsmarty on 11/5/21.
 //
 
-#include "main.hpp"
+#include "main.h"
+#include "vk_engine.h"
+#define VMA_IMPLEMENTATION
+#include "vk_mem_alloc.h"
+
 
 void bsEngine::init_vulkan()
 {
@@ -48,6 +52,15 @@ void bsEngine::init_vulkan()
     //use vkBootstrap to find a suitable graphics queue
     _graphicsQueue = vkbDevice.get_queue(vkb::QueueType::graphics).value();
     _graphicsQueueFamily = vkbDevice.get_queue_index(vkb::QueueType::graphics).value();
+
+    VmaAllocatorCreateInfo allocatorInfo = {};
+    allocatorInfo = {
+            .physicalDevice = _chosenGPU,
+            .device = _logicalDevice,
+            .instance = _instance,
+    };
+
+    vmaCreateAllocator(&allocatorInfo, &_allocator);
 
 }
 

@@ -3,28 +3,160 @@
 
 #pragma once
 
-#include <main.h>
+#include "main.h"
+#include "window.h"
+#include "vk_types.h"
+
+#include <glm/glm.hpp>
+#include "vk_mem_alloc.h"
+#include <vk_mesh.h>
+#include <mouse_input.h>
+
+struct CamState
+{
+
+    float x;
+    float y;
+    float z;
+
+    float speed;
+
+    float pitch;
+    float yaw;
+
+    glm::vec3 direction;
+
+};
+
+struct Material
+{
+    VkPipeline pipeline;
+    VkPipelineLayout pipelineLayout;
+};
+
+struct RenderObject
+{
+    Mesh* mesh;
+    Material* material;
+    glm::mat4 transformMatrix;
+};
+
+struct AllocatedImage
+{
+
+    VkImage _image;
+    VmaAllocation _allocation;
+
+};
+
+struct MeshPushConstants
+{
+    glm::vec4 data;
+    glm::mat4 render_matrix;
+};
+
+
+struct DeletionQueue
+{
+
+    std::deque<std::function<void()>> deletors;
+
+    void push_function(std::function<void()>&& function)
+    {
+        deletors.push_back((function));
+    }
+
+    void flush()
+    {
+
+        for (auto it = deletors.rbegin(); it != deletors.rend(); it++)
+        {
+            (*it)();
+        }
+        deletors.clear();
+
+    }
+
+};
 
 class bsEngine {
 public:
 
+    //VARIABLES
     //basic setup variables
     VkInstance _instance; //load core vulkan structures
     VkDebugUtilsMessengerEXT _debug_messenger; //debug messenger
     VkPhysicalDevice _chosenGPU; //handle to the chosen GPU
-    VkDevice _device; //logical vulkan device
+    VkDevice _logicalDevice; //logical vulkan device
     VkSurfaceKHR _surface; //surface used to display things on
     bsWindow _bs_window;
+
+    VkSurfaceCapabilitiesKHR _surfaceCapabilities = {};
+
+    //needed for frametime calculator
+    std::chrono::time_point<std::chrono::high_resolution_clock> last_time;
 
     //swapchain variables
     VkSwapchainKHR _swapchain; //creates the swapchain
     VkFormat _swapchainImageFormat; //variable to store the image format of each image
     std::vector<VkImage> _swapchainImages; //swapchain array to store the images
     std::vector<VkImageView> _swapchainImageViews; //array to store the image vires from the swapchain
+    vkb::InstanceBuilder builder;
 
+    VkQueue _graphicsQueue; //queue which is going to have commands submitted to
+    uint32_t _graphicsQueueFamily; //family of that queue
+
+    VkCommandPool _commandPool; //the commandpool to manage command buffer and stuff
+    VkCommandBuffer _mainCommandBuffer; //commandbuffer to store commands
+
+    VkRenderPass  _renderPass;
+    std::vector<VkFramebuffer> _framebuffers;
+
+    //sync stuff
+    VkSemaphore _presentSemaphore, _renderSemaphore;
+    VkFence _renderFence;
+
+    VkPipelineLayout genericPipelineLayout;
+    VkPipeline _redTrianglePipeline;
+    VkPipeline RGBTrianglePipeline;
+
+    VkPipelineLayout _meshPipelineLayout;
+    VkPipeline _meshPipeline;
+    Mesh _triangleMesh;
+
+    Mesh _monkeyMesh;
+
+    DeletionQueue _mainDeletionQueue;
+
+    VmaAllocator _allocator;
+
+    VkImageView _depthImageView;
+    AllocatedImage _depthImage;
+
+    //depth image format
+    VkFormat _depthFormat;
+
+    //default array for renderable objects
+    std::vector<RenderObject> _renderables;
+
+    InputMouse mouseInput;
+
+    std::unordered_map<std::string,Material> _materials;
+    std::unordered_map<std::string,Mesh> _meshes;
+
+    float _frametime = 0;
+    glm::vec3 cameraFront;
+    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f,  0.0f);
+    CamState camState = {0.0f, -4.0f, -12.0f, 10.0f, 0.0f, 0.0f};
+    glm::vec3 camMovement = {0.0f, 0.0f, 0.0f};
 
 	bool _isInitialized{ false };
-	int _frameNumber {0};
+	float _frameNumber {0};
+
+    float yaw = -90.0f;
+    float pitch = 0.0f;
+
+    //FUNCTIONS
 
 	//initializes everything in the engine
 	void init();
@@ -39,7 +171,48 @@ public:
 	void run();
 
 private:
+    //REQUIRED
     void init_vulkan();
 
     void init_swapchain();
+
+    void init_commands();
+
+    void init_default_renderpass();
+
+    void init_framebuffer();
+
+    void init_sync_structures();
+
+    void init_pipelines();
+
+    void load_meshes();
+
+    void init_scene();
+
+    void upload_mesh(Mesh& mesh);
+
+    void camera();
+
+    //ADDITIONAL FEATURES
+    float frametimeCounter();
+
+    std::optional<VkShaderModule> load_shader(const char* shaderPath, VkShaderModule* outShaderModule);
+
+    //create material and add it to the unordered map
+    Material* create_material(VkPipeline pipeline, VkPipelineLayout layout, const std::string& name);
+
+    //returns nullptr if it cant be found
+    Material* get_material(const std::string& name);
+
+    //returns nullptr if it cant be found
+    Mesh* get_mesh(const std::string& name);
+
+    //the draw function for the objects
+    void draw_objects(VkCommandBuffer cmd, RenderObject* first, int count);
+
+    //WIP
+    /*void setup_cmd_buffer();
+
+    void initial_frame_setup();*/
 };

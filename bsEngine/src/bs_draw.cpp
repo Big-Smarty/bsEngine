@@ -2,8 +2,9 @@
 // Created by bigsmarty on 11/5/21.
 //
 
-#include <main.hpp>
-#include <vk_engine.hpp>
+#include <main.h>
+#include <vk_engine.h>
+#include <glm/gtx/transform.hpp>
 
 
 void bsEngine::draw()
@@ -34,6 +35,11 @@ void bsEngine::draw()
     float flash = abs(sin(_frameNumber / 120.0f));
     clearValue.color =  {{flash, 0.0f, 10.0f, 0.0f}};
 
+    VkClearValue depthClear;
+    depthClear.depthStencil.depth = 1.0f;
+
+    VkClearValue clearValues[] = {clearValue, depthClear};
+
     //start the main renderpass.
     //We will use the clear color from above, and the framebuffer of the index the swapchain gave us
     VkRenderPassBeginInfo rpInfo = {};
@@ -47,11 +53,12 @@ void bsEngine::draw()
     rpInfo.framebuffer = _framebuffers[swapchainImageIndex];
 
     //connect clear values
-    rpInfo.clearValueCount = 1;
-    rpInfo.pClearValues = &clearValue;
+    rpInfo.clearValueCount = 2;
+    rpInfo.pClearValues = &clearValues[0];
 
     vkCmdBeginRenderPass(cmd, &rpInfo, VK_SUBPASS_CONTENTS_INLINE);
 
+    draw_objects(cmd, _renderables.data(), _renderables.size());
 
     vkCmdEndRenderPass(cmd);
     VK_CHECK(vkEndCommandBuffer(cmd));
@@ -89,5 +96,5 @@ void bsEngine::draw()
 
     _frameNumber++;
 
-    frametimeCounter();
+    _frametime = frametimeCounter();
 }

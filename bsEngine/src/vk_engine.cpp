@@ -1,10 +1,14 @@
 ﻿
-#include "main.hpp"
+#include <vk_engine.h>
 
 using namespace std;
 
 void bsEngine::init()
 {
+    mouseInput.Initialize();
+    mouseInput.Update();
+    cout << "Mouse initialization was successful!\n";
+
     init_vulkan();
     cout << "Initialised vulkan stuff without issues\n";
 
@@ -25,6 +29,12 @@ void bsEngine::init()
 
     init_pipelines();
     cout << "Pipelines were initialised successfully!\n";
+
+    load_meshes();
+    cout << "Meshes have been loaded successfully!\n";
+
+    init_scene();
+    cout << "Scene has been loaded successfully!\n";
 	
 	//everything went fine
 	_isInitialized = true;
@@ -34,24 +44,12 @@ void bsEngine::cleanup()
 {	
 	if (_isInitialized) {
 
-        vkDestroySemaphore(_logicalDevice, _renderSemaphore, nullptr);
-        vkDestroySemaphore(_logicalDevice, _presentSemaphore, nullptr);
-        vkDestroyFence(_logicalDevice, _renderFence, nullptr);
+        vkWaitForFences(_logicalDevice, 1, &_renderFence, true, 1000000000);
 
-        vkDestroyCommandPool(_logicalDevice, _commandPool, nullptr);
+        _mainDeletionQueue.flush();
 
-        vkDestroySwapchainKHR(_logicalDevice, _swapchain, nullptr);
-
-        vkDestroyRenderPass(_logicalDevice, _renderPass, nullptr);
-
-        //destroy swapchain resources
-        for (auto & _swapchainImageView : _swapchainImageViews)
-        {
-            vkDestroyImageView(_logicalDevice, _swapchainImageView, nullptr);
-        }
-        vkDestroyDevice(_logicalDevice, nullptr);
         vkDestroySurfaceKHR(_instance, _surface, nullptr);
-        vkb::destroy_debug_utils_messenger(_instance, _debug_messenger);
+        vkDestroyDevice(_logicalDevice, nullptr);
         vkDestroyInstance(_instance, nullptr);
 		
 		SDL_DestroyWindow(_bs_window._window);
@@ -72,9 +70,19 @@ void bsEngine::run()
 		//Handle events on queue
 		while (SDL_PollEvent(&e) != 0)
 		{
-			//close the window when user alt-f4s or clicks the X button			
-			if (e.type == SDL_QUIT) bQuit = true;
+			//close the window when user alt-f4s or clicks the X button
+			switch(e.type)
+            {
+                case SDL_QUIT:
+                    bQuit = true;
+
+            }
+
 		}
+
+        mouseInput.Update();
+
+        camera();
 
 		draw();
 	}
@@ -92,15 +100,26 @@ void bsEngine::init_sync_structures()
     };
 
     VK_CHECK(vkCreateFence(_logicalDevice, &fenceCreateInfo, nullptr, &_renderFence));
+    _mainDeletionQueue.push_function([=]()
+                                     {
+                                         vkDestroyFence(_logicalDevice, _renderFence, nullptr);
+                                     });
 
     VkSemaphoreCreateInfo semaphoreCreateInfo = {
 
-        VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
+        .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
         .pNext = nullptr,
         .flags = 0
     };
 
     VK_CHECK(vkCreateSemaphore(_logicalDevice, &semaphoreCreateInfo, nullptr, &_renderSemaphore));
     VK_CHECK(vkCreateSemaphore(_logicalDevice, &semaphoreCreateInfo, nullptr, &_presentSemaphore));
+
+    _mainDeletionQueue.push_function([=]()
+                                     {
+                                         vkDestroySemaphore(_logicalDevice, _presentSemaphore, nullptr);
+                                         vkDestroySemaphore(_logicalDevice, _renderSemaphore, nullptr);
+                                     });
+
 }
 
