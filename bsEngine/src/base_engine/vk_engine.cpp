@@ -9,6 +9,10 @@ void bsEngine::init()
     mouseInput.Update();
     cout << "Mouse initialization was successful!\n";
 
+    controllerHandling.InitializeControllers();
+    controllerHandling.Update();
+    cout << "Controller initialization was successful!\n";
+
     init_vulkan();
     cout << "Initialised vulkan stuff without issues\n";
 
@@ -81,6 +85,7 @@ void bsEngine::run()
 		}
 
         mouseInput.Update();
+        controllerHandling.Update();
 
         camera();
 

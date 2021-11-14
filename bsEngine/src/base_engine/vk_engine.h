@@ -8,24 +8,37 @@
 #include "setup/vk_types.h"
 
 #include <glm/glm.hpp>
+#include <glm/gtx/transform.hpp>
 #include "vk_mem_alloc.h"
 #include <resource_loading/vk_mesh.h>
 #include <io/mouse_input.h>
+#include "../io/controller_input.h"
 
 struct CamState
 {
 
-    float x;
-    float y;
-    float z;
+    glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+    glm::vec3 camPos = {0,0,10};
+    glm::mat4 view = glm::lookAt(camPos, glm::vec3(0,0,0), glm::vec3(0,1,0));
+    glm::mat4 projection;
+    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f,  0.0f);
 
-    float speed;
+    glm::vec3 camMovement = {0.0f, 0.0f, 0.0f};
+    float speed = 15.0f;
 
-    float pitch;
-    float yaw;
+    float pitch = 0;
+    float yaw = -450;
 
     glm::vec3 direction;
 
+};
+
+struct InputValues
+{
+    float xOffset;
+    float yOffset;
+    float conRightX;
+    float conRightY;
 };
 
 struct Material
@@ -120,6 +133,8 @@ public:
 
     AdditionalVariables additions;
     VulkanEssentials vkEssentials;
+    GamePadHandling controllerHandling;
+    InputValues inputValues;
     bsWindow _bs_window;
 
     VkPipelineLayout genericPipelineLayout;
@@ -149,16 +164,10 @@ public:
     std::unordered_map<std::string,Mesh> _meshes;
 
     float _frametime = 0;
-    glm::vec3 cameraFront;
-    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f,  0.0f);
-    CamState camState = {0.0f, -4.0f, -12.0f, 10.0f, 0.0f, 0.0f};
-    glm::vec3 camMovement = {0.0f, 0.0f, 0.0f};
+    CamState camState = {};
 
 	bool _isInitialized{ false };
 	float _frameNumber {0};
-
-    float yaw = -90.0f;
-    float pitch = 0.0f;
 
     //FUNCTIONS
 
