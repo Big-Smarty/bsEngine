@@ -11,14 +11,14 @@ Material* bsEngine::create_material(VkPipeline pipeline, VkPipelineLayout layout
             .pipeline = pipeline,
             .pipelineLayout = layout
     };
-    _materials[name] = mat;
-    return &_materials[name];
+    materials[name] = mat;
+    return &materials[name];
 }
 
 Material* bsEngine::get_material(const std::string &name)
 {
-    auto it = _materials.find(name);
-    if (it == _materials.end())
+    auto it = materials.find(name);
+    if (it == materials.end())
     {
         return nullptr;
     }
@@ -30,8 +30,8 @@ Material* bsEngine::get_material(const std::string &name)
 
 Mesh* bsEngine::get_mesh(const std::string &name)
 {
-    auto it = _meshes.find(name);
-    if (it == _meshes.end())
+    auto it = meshes.find(name);
+    if (it == meshes.end())
     {
         return nullptr;
     }

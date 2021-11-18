@@ -39,13 +39,14 @@ void GamePadHandling::InitializeControllers()
             if (SDL_GameControllerGetAttached(pad) == 1)
             {
                 connectedControllers.push_back(pad);
+                cout << "Pad: " << SDL_GameControllerName(pad) << endl;
             }
             else
             {
                 cerr << "SDL_GetError(): " << SDL_GetError() << endl;
             }
         }
-        SDL_GameControllerEventState(SDL_ENABLE);
+        //SDL_GameControllerEventState(SDL_ENABLE);
     }
 
     //initialize input arrays with the size of the amount of gamepads
@@ -71,10 +72,10 @@ void GamePadHandling::InitializeControllers()
 
 void GamePadHandling::Update()
 {
-    SDL_Event conEvent;
+    /*SDL_Event conEvent;
     if (SDL_PollEvent(&conEvent))
     {
-        /*switch(conEvent.type)
+        switch(conEvent.type)
         {
             //if new controller is added
             case SDL_CONTROLLERDEVICEADDED:
@@ -113,8 +114,8 @@ void GamePadHandling::Update()
                     }
                 }
                 break;
-        }*/
-    }
+        }
+    }*/
 
     //set axis and buttons of lastControllerInputs to the ones of controllerInputs
     for (int i = 0; i < numGamepads; i++)

@@ -21,8 +21,10 @@ void bsEngine::init_pipelines() {
 
     meshPipelineLayoutInfo.pushConstantRangeCount = 1;
     meshPipelineLayoutInfo.pPushConstantRanges = &pushConstant;
+    meshPipelineLayoutInfo.setLayoutCount = 1;
+    meshPipelineLayoutInfo.pSetLayouts = &globalSetLayout;
 
-    VK_CHECK(vkCreatePipelineLayout(vkEssentials._logicalDevice, &meshPipelineLayoutInfo, nullptr, &_meshPipelineLayout));
+    VK_CHECK(vkCreatePipelineLayout(oVkEssentials._logicalDevice, &meshPipelineLayoutInfo, nullptr, &meshPipelineLayout));
 
     VkShaderModule RGBfragmentModule;
     if (load_shader("../shaders/rgb_triangle.frag.spv", &RGBfragmentModule) != nullopt) {
@@ -31,39 +33,21 @@ void bsEngine::init_pipelines() {
         cerr << "Failed to load the fragment shader module!\n";
         abort();
     }
-
-    VkShaderModule RGBvertexModule;
-    if (load_shader("../shaders/rgb_triangle.vert.spv", &RGBvertexModule) != nullopt) {
-        cout << "Successfully loaded the vertex shader module!\n";
-    } else {
-        cerr << "Failed to load the vertex shader module!\n";
-        abort();
+    VkShaderModule meshVertShader;
+    if (load_shader("../shaders/tri_mesh.vert.spv", &meshVertShader))
+    {
+        std::cout << "Red Triangle vertex shader successfully loaded" << std::endl;
     }
-
-    VkShaderModule _redfragmentModule;
-    if (load_shader("../shaders/triangle.frag.spv", &_redfragmentModule) != nullopt) {
-        cout << "Successfully loaded the fragment shader module!\n";
-    } else {
-        cerr << "Failed to load the fragment shader module!\n";
-        abort();
-    }
-
-    VkShaderModule _redvertexModule;
-    if (load_shader("../shaders/triangle.vert.spv", &_redvertexModule) != nullopt) {
-        cout << "Successfully loaded the vertex shader module!\n";
-    } else {
-        cerr << "Failed to load the vertex shader module!\n";
+    else {
+        cerr << "Error when building the triangle vertex shader module" << std::endl;
         abort();
     }
 
     VkPipelineLayoutCreateInfo pipelineLayoutInfo = vkinit::pipelineLayoutCreateInfo();
 
-    VK_CHECK(vkCreatePipelineLayout(vkEssentials._logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
+    VK_CHECK(vkCreatePipelineLayout(oVkEssentials._logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
 
     PipelineBuilder pipelineBuilder;
-
-    pipelineBuilder.shaderStages.push_back(vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_VERTEX_BIT, _redvertexModule));
-    pipelineBuilder.shaderStages.push_back(vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_FRAGMENT_BIT, _redfragmentModule));
 
     VkPipelineColorBlendAttachmentState attachment = vkinit::createColorBlendAttachmentState();
 
@@ -72,13 +56,13 @@ void bsEngine::init_pipelines() {
 
     pipelineBuilder.viewport.x = 0.0f;
     pipelineBuilder.viewport.y = 0.0f;
-    pipelineBuilder.viewport.width = (float) _bs_window._windowExtent.width;
-    pipelineBuilder.viewport.height = (float) _bs_window._windowExtent.height;
+    pipelineBuilder.viewport.width = (float) oWindow._windowExtent.width;
+    pipelineBuilder.viewport.height = (float) oWindow._windowExtent.height;
     pipelineBuilder.viewport.minDepth = 0.0f;
     pipelineBuilder.viewport.maxDepth = 1.0f;
 
     pipelineBuilder.scissor.offset = {0, 0};
-    pipelineBuilder.scissor.extent = _bs_window._windowExtent;
+    pipelineBuilder.scissor.extent = oWindow._windowExtent;
 
     pipelineBuilder.viewportStateInfo = vkinit::viewportStateCreateInfo(&pipelineBuilder.viewport, &pipelineBuilder.scissor);
     pipelineBuilder.rasterizationStateInfo = vkinit::rasterizationStateCreateInfo();
@@ -87,12 +71,9 @@ void bsEngine::init_pipelines() {
     pipelineBuilder.colorBlendInfo = vkinit::colorBlendStateCreateInfo(&attachment);
     pipelineBuilder.pipelineLayout = genericPipelineLayout;
 
-    pipelineBuilder.shaderStages.clear();
-
-    pipelineBuilder.shaderStages.push_back(vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_VERTEX_BIT, RGBvertexModule));
     pipelineBuilder.shaderStages.push_back(vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_FRAGMENT_BIT, RGBfragmentModule));
 
-    VK_CHECK(vkCreatePipelineLayout(vkEssentials._logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
+    VK_CHECK(vkCreatePipelineLayout(oVkEssentials._logicalDevice, &pipelineLayoutInfo, nullptr, &genericPipelineLayout));
 
     pipelineBuilder.pipelineLayout = genericPipelineLayout;
 
@@ -105,21 +86,7 @@ void bsEngine::init_pipelines() {
     pipelineBuilder.vertexInputStateInfo.pVertexBindingDescriptions = vertexDescription.bindings.data();
     pipelineBuilder.vertexInputStateInfo.vertexBindingDescriptionCount = vertexDescription.bindings.size();
 
-    //clear the shader stages for the builder
     pipelineBuilder.shaderStages.clear();
-
-    //compile mesh vertex shader
-
-
-    VkShaderModule meshVertShader;
-    if (!load_shader("../shaders/tri_mesh.vert.spv", &meshVertShader))
-    {
-        std::cout << "Error when building the triangle vertex shader module" << std::endl;
-    }
-    else {
-        std::cout << "Red Triangle vertex shader successfully loaded" << std::endl;
-    }
-
     //add the other shaders
     pipelineBuilder.shaderStages.push_back(
             vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_VERTEX_BIT, meshVertShader));
@@ -128,24 +95,20 @@ void bsEngine::init_pipelines() {
     pipelineBuilder.shaderStages.push_back(
             vkinit::shaderStageCreateInfo(VK_SHADER_STAGE_FRAGMENT_BIT, RGBfragmentModule));
 
-    pipelineBuilder.pipelineLayout = _meshPipelineLayout;
+    pipelineBuilder.pipelineLayout = meshPipelineLayout;
 
     //build the mesh triangle pipeline
-    _meshPipeline = pipelineBuilder.build_pipeline(vkEssentials._logicalDevice, vkEssentials._renderPass);
-    create_material(_meshPipeline, _meshPipelineLayout, "defaultmesh");
+    meshPipeline = pipelineBuilder.build_pipeline(oVkEssentials._logicalDevice, oVkEssentials._renderPass);
+    create_material(meshPipeline, meshPipelineLayout, "defaultmesh");
 
-    vkDestroyShaderModule(vkEssentials._logicalDevice, meshVertShader, nullptr);
-    vkDestroyShaderModule(vkEssentials._logicalDevice, _redfragmentModule, nullptr);
-    vkDestroyShaderModule(vkEssentials._logicalDevice, _redvertexModule, nullptr);
-    vkDestroyShaderModule(vkEssentials._logicalDevice, RGBfragmentModule, nullptr);
-    vkDestroyShaderModule(vkEssentials._logicalDevice, RGBvertexModule, nullptr);
+    vkDestroyShaderModule(oVkEssentials._logicalDevice, meshVertShader, nullptr);
+    vkDestroyShaderModule(oVkEssentials._logicalDevice, RGBfragmentModule, nullptr);
 
-    _mainDeletionQueue.push_function([=]()
+    mainDeletionQueue.push_function([=]()
                                      {
-                                         vkDestroyPipeline(vkEssentials._logicalDevice, _meshPipeline, nullptr);
-
-                                         vkDestroyPipelineLayout(vkEssentials._logicalDevice, genericPipelineLayout, nullptr);
-                                         vkDestroyPipelineLayout(vkEssentials._logicalDevice, _meshPipelineLayout, nullptr);
+                                         vkDestroyPipeline(oVkEssentials._logicalDevice, meshPipeline, nullptr);
+                                         vkDestroyPipelineLayout(oVkEssentials._logicalDevice, genericPipelineLayout, nullptr);
+                                         vkDestroyPipelineLayout(oVkEssentials._logicalDevice, meshPipelineLayout, nullptr);
                                      });
 
     cout << "IT FUCKING WORKS\n";

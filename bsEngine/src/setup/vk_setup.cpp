@@ -7,12 +7,13 @@
 #define VMA_IMPLEMENTATION
 #include "vk_mem_alloc.h"
 
+using namespace std;
 
 void bsEngine::init_vulkan()
 {
 
     //create the vulkan instance with basic debugging features
-    auto inst_ret = vkEssentials.builder.set_app_name("BS Engine")
+    auto inst_ret = oVkEssentials.builder.set_app_name("BS Engine")
             .request_validation_layers(true)
             .require_api_version(1, 1, 0)
             .use_default_debug_messenger()
@@ -21,18 +22,18 @@ void bsEngine::init_vulkan()
     vkb::Instance vkb_inst = inst_ret.value();
 
     //store the instance
-    vkEssentials._instance = vkb_inst.instance;
+    oVkEssentials._instance = vkb_inst.instance;
 
     //store the debug messenger
-    vkEssentials._debug_messenger = vkb_inst.debug_messenger;
+    oVkEssentials._debug_messenger = vkb_inst.debug_messenger;
 
-    SDL_Vulkan_CreateSurface(_bs_window._window, vkEssentials._instance, &vkEssentials._surface);
+    SDL_Vulkan_CreateSurface(oWindow._window, oVkEssentials._instance, &oVkEssentials._surface);
 
     //use vkBootstrap to select a GPU with support for present and Vulkan => 1.1
     vkb::PhysicalDeviceSelector selector {vkb_inst};
     vkb::PhysicalDevice physicalDevice = selector
             .set_minimum_version(1, 1)
-            .set_surface(vkEssentials._surface)
+            .set_surface(oVkEssentials._surface)
             .select()
             .value();
 
@@ -42,25 +43,25 @@ void bsEngine::init_vulkan()
     vkb::Device vkbDevice = deviceBuilder.build().value();
 
     //store the logical and physical device for later use
-    vkEssentials._logicalDevice = vkbDevice.device;
-    vkEssentials._chosenGPU = physicalDevice.physical_device;
+    oVkEssentials._logicalDevice = vkbDevice.device;
+    oVkEssentials._chosenGPU = physicalDevice.physical_device;
 
-    VkPhysicalDeviceProperties _deviceProperties;
-    vkGetPhysicalDeviceProperties(vkEssentials._chosenGPU, &_deviceProperties);
-    std::cout << "Devicetype of the chosen GPU: " << _deviceProperties.deviceType << std::endl;
+    vkGetPhysicalDeviceProperties(oVkEssentials._chosenGPU, &_deviceProperties);
+    cout << "Devicetype of the chosen GPU: " << _deviceProperties.deviceType << std::endl;
+    cout << "Minimum buffer alignment: " << _deviceProperties.limits.minUniformBufferOffsetAlignment << endl;
 
     //use vkBootstrap to find a suitable graphics queue
-    vkEssentials._graphicsQueue = vkbDevice.get_queue(vkb::QueueType::graphics).value();
-    vkEssentials._graphicsQueueFamily = vkbDevice.get_queue_index(vkb::QueueType::graphics).value();
+    oVkEssentials._graphicsQueue = vkbDevice.get_queue(vkb::QueueType::graphics).value();
+    oVkEssentials._graphicsQueueFamily = vkbDevice.get_queue_index(vkb::QueueType::graphics).value();
 
     VmaAllocatorCreateInfo allocatorInfo = {};
     allocatorInfo = {
-            .physicalDevice = vkEssentials._chosenGPU,
-            .device = vkEssentials._logicalDevice,
-            .instance = vkEssentials._instance,
+            .physicalDevice = oVkEssentials._chosenGPU,
+            .device = oVkEssentials._logicalDevice,
+            .instance = oVkEssentials._instance,
     };
 
-    vmaCreateAllocator(&allocatorInfo, &_allocator);
+    vmaCreateAllocator(&allocatorInfo, &allocator);
 
 }
 

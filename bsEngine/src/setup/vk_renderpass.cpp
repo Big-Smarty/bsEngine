@@ -11,7 +11,7 @@ void bsEngine::init_default_renderpass()
     //the color attachment to use by the renderpass
     VkAttachmentDescription color_attachment = {
 
-            .format = vkEssentials._swapchainImageFormat, //the format required to be used in the swapchain
+            .format = oVkEssentials._swapchainImageFormat, //the format required to be used in the swapchain
             .samples = VK_SAMPLE_COUNT_1_BIT, //no msaa
             .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR, //clear the attachment when its loaded
             .storeOp = VK_ATTACHMENT_STORE_OP_STORE, //store it when the renderpass ends
@@ -24,7 +24,7 @@ void bsEngine::init_default_renderpass()
     VkAttachmentDescription depth_attachment = {
 
             .flags = 0,
-            .format = _depthFormat,
+            .format = depthFormat,
             .samples = VK_SAMPLE_COUNT_1_BIT,
             .loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR,
             .storeOp = VK_ATTACHMENT_STORE_OP_STORE,
@@ -67,10 +67,10 @@ void bsEngine::init_default_renderpass()
             .pSubpasses = &subpass
     };
 
-    VK_CHECK(vkCreateRenderPass(vkEssentials._logicalDevice, &render_pass_info, nullptr, &vkEssentials._renderPass));
+    VK_CHECK(vkCreateRenderPass(oVkEssentials._logicalDevice, &render_pass_info, nullptr, &oVkEssentials._renderPass));
 
-    _mainDeletionQueue.push_function([=](){
-        vkDestroyRenderPass(vkEssentials._logicalDevice, vkEssentials._renderPass, nullptr);
+    mainDeletionQueue.push_function([=](){
+        vkDestroyRenderPass(oVkEssentials._logicalDevice, oVkEssentials._renderPass, nullptr);
     });
 
 }
@@ -82,31 +82,31 @@ void bsEngine::init_framebuffer()
 
             .sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO,
             .pNext = nullptr,
-            .renderPass = vkEssentials._renderPass,
+            .renderPass = oVkEssentials._renderPass,
             .attachmentCount = 1,
-            .width = _bs_window._windowExtent.width,
-            .height = _bs_window._windowExtent.height,
+            .width = oWindow._windowExtent.width,
+            .height = oWindow._windowExtent.height,
             .layers = 1
     };
 
     //grab the amount of images in the swapchain
-    const uint32_t swapchain_imagecount = vkEssentials._swapchainImages.size();
-    vkEssentials._framebuffers = std::vector<VkFramebuffer>(swapchain_imagecount);
+    const uint32_t swapchain_imagecount = oVkEssentials._swapchainImages.size();
+    oVkEssentials._framebuffers = std::vector<VkFramebuffer>(swapchain_imagecount);
 
     for (int i = 0; i < swapchain_imagecount; i++)
     {
         VkImageView attachments[2];
-        attachments[0] = vkEssentials._swapchainImageViews[i];
-        attachments[1] = _depthImageView;
+        attachments[0] = oVkEssentials._swapchainImageViews[i];
+        attachments[1] = depthImageView;
 
         fb_info.attachmentCount = 2;
         fb_info.pAttachments = attachments;
-        VK_CHECK(vkCreateFramebuffer(vkEssentials._logicalDevice, &fb_info, nullptr, &vkEssentials._framebuffers[i]));
+        VK_CHECK(vkCreateFramebuffer(oVkEssentials._logicalDevice, &fb_info, nullptr, &oVkEssentials._framebuffers[i]));
 
-        _mainDeletionQueue.push_function([=]()
+        mainDeletionQueue.push_function([=]()
                                          {
-                                             vkDestroyFramebuffer(vkEssentials._logicalDevice, vkEssentials._framebuffers[i], nullptr);
-                                             vkDestroyImageView(vkEssentials._logicalDevice, vkEssentials._swapchainImageViews[i], nullptr);
+                                             vkDestroyFramebuffer(oVkEssentials._logicalDevice, oVkEssentials._framebuffers[i], nullptr);
+                                             vkDestroyImageView(oVkEssentials._logicalDevice, oVkEssentials._swapchainImageViews[i], nullptr);
                                          });
     };
 

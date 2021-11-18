@@ -9,8 +9,8 @@ void bsEngine::init()
     mouseInput.Update();
     cout << "Mouse initialization was successful!\n";
 
-    controllerHandling.InitializeControllers();
-    controllerHandling.Update();
+    oControllerHandling.InitializeControllers();
+    oControllerHandling.Update();
     cout << "Controller initialization was successful!\n";
 
     init_vulkan();
@@ -31,6 +31,9 @@ void bsEngine::init()
     init_sync_structures();
     cout << "Sync structures were initialised successfully!\n";
 
+    init_descriptors();
+    cout << "Descriptors were initialized successfully!\n";
+
     init_pipelines();
     cout << "Pipelines were initialised successfully!\n";
 
@@ -41,22 +44,22 @@ void bsEngine::init()
     cout << "Scene has been loaded successfully!\n";
 	
 	//everything went fine
-	_isInitialized = true;
+	bIsInitialized = true;
     cout << "the engine was initialised without issues\n";
 }
 void bsEngine::cleanup()
 {	
-	if (_isInitialized) {
+	if (bIsInitialized) {
 
-        vkWaitForFences(vkEssentials._logicalDevice, 1, &vkEssentials._renderFence, true, 1000000000);
+        vkWaitForFences(oVkEssentials._logicalDevice, 1, &getCurrentFrame()._renderFence, true, 1000000000);
 
-        _mainDeletionQueue.flush();
+        mainDeletionQueue.flush();
 
-        vkDestroySurfaceKHR(vkEssentials._instance, vkEssentials._surface, nullptr);
-        vkDestroyDevice(vkEssentials._logicalDevice, nullptr);
-        vkDestroyInstance(vkEssentials._instance, nullptr);
+        vkDestroySurfaceKHR(oVkEssentials._instance, oVkEssentials._surface, nullptr);
+        vkDestroyDevice(oVkEssentials._logicalDevice, nullptr);
+        vkDestroyInstance(oVkEssentials._instance, nullptr);
 		
-		SDL_DestroyWindow(_bs_window._window);
+		SDL_DestroyWindow(oWindow._window);
 
         cout << "cleanup ran without issues\n";
 	}
@@ -66,7 +69,6 @@ void bsEngine::cleanup()
 void bsEngine::run()
 {
 	SDL_Event e;
-	bool bQuit = false;
 
 	//main loop
 	while (!bQuit)
@@ -85,7 +87,7 @@ void bsEngine::run()
 		}
 
         mouseInput.Update();
-        controllerHandling.Update();
+        oControllerHandling.Update();
 
         camera();
 
@@ -104,27 +106,41 @@ void bsEngine::init_sync_structures()
             .flags = VK_FENCE_CREATE_SIGNALED_BIT
     };
 
-    VK_CHECK(vkCreateFence(vkEssentials._logicalDevice, &fenceCreateInfo, nullptr, &vkEssentials._renderFence));
-    _mainDeletionQueue.push_function([=]()
-                                     {
-                                         vkDestroyFence(vkEssentials._logicalDevice, vkEssentials._renderFence, nullptr);
-                                     });
+    for (int i = 0; i < FRAME_OVERLAP; i++)
+    {
+        VK_CHECK(vkCreateFence(oVkEssentials._logicalDevice, &fenceCreateInfo, nullptr, &oFrameData[i]._renderFence));
+        mainDeletionQueue.push_function([=]()
+                                         {
+                                             vkDestroyFence(oVkEssentials._logicalDevice, oFrameData[i]._renderFence, nullptr);
+                                         });
 
-    VkSemaphoreCreateInfo semaphoreCreateInfo = {
+        VkSemaphoreCreateInfo semaphoreCreateInfo = {
 
-        .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
-        .pNext = nullptr,
-        .flags = 0
-    };
+                .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
+                .pNext = nullptr,
+                .flags = 0
+        };
 
-    VK_CHECK(vkCreateSemaphore(vkEssentials._logicalDevice, &semaphoreCreateInfo, nullptr, &vkEssentials._renderSemaphore));
-    VK_CHECK(vkCreateSemaphore(vkEssentials._logicalDevice, &semaphoreCreateInfo, nullptr, &vkEssentials._presentSemaphore));
+        VK_CHECK(vkCreateSemaphore(oVkEssentials._logicalDevice, &semaphoreCreateInfo, nullptr, &oFrameData[i]._renderSemaphore));
+        VK_CHECK(vkCreateSemaphore(oVkEssentials._logicalDevice, &semaphoreCreateInfo, nullptr, &oFrameData[i]._presentSemaphore));
 
-    _mainDeletionQueue.push_function([=]()
-                                     {
-                                         vkDestroySemaphore(vkEssentials._logicalDevice, vkEssentials._presentSemaphore, nullptr);
-                                         vkDestroySemaphore(vkEssentials._logicalDevice, vkEssentials._renderSemaphore, nullptr);
-                                     });
+        mainDeletionQueue.push_function([=]()
+                                         {
+                                             vkDestroySemaphore(oVkEssentials._logicalDevice, oFrameData[i]._presentSemaphore, nullptr);
+                                             vkDestroySemaphore(oVkEssentials._logicalDevice, oFrameData[i]._renderSemaphore, nullptr);
+                                         });
+    }
 
 }
 
+size_t bsEngine::pad_uniform_buffer_size(size_t originalSize)
+{
+    //calculate required alignment based on the minimum offset
+    size_t minUboAlignment = _deviceProperties.limits.minUniformBufferOffsetAlignment;
+    size_t alignedSize = originalSize;
+    if (minUboAlignment > 0)
+    {
+        alignedSize = (alignedSize + minUboAlignment - 1) & ~(minUboAlignment - 1);
+    }
+    return alignedSize;
+}

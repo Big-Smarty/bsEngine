@@ -8,17 +8,20 @@
 void bsEngine::init_commands()
 {
 
-    VkCommandPoolCreateInfo commandPoolInfo = vkinit::commandPoolCreateInfo(vkEssentials._graphicsQueueFamily,
+    VkCommandPoolCreateInfo commandPoolInfo = vkinit::commandPoolCreateInfo(oVkEssentials._graphicsQueueFamily,
                                                                             VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT);
 
-    VK_CHECK(vkCreateCommandPool(vkEssentials._logicalDevice, &commandPoolInfo, nullptr, &vkEssentials._commandPool));
+    for (int i = 0; i < FRAME_OVERLAP; i++)
+    {
+        VK_CHECK(vkCreateCommandPool(oVkEssentials._logicalDevice, &commandPoolInfo, nullptr, &oFrameData[i]._commandPool));
 
-    VkCommandBufferAllocateInfo cmdAllocInfo = vkinit::commandBufferAllocateInfo(vkEssentials._commandPool, 1);
-    VK_CHECK(vkAllocateCommandBuffers(vkEssentials._logicalDevice, &cmdAllocInfo, &vkEssentials._mainCommandBuffer));
+        VkCommandBufferAllocateInfo cmdAllocInfo = vkinit::commandBufferAllocateInfo(oFrameData[i]._commandPool, 1);
+        VK_CHECK(vkAllocateCommandBuffers(oVkEssentials._logicalDevice, &cmdAllocInfo, &oFrameData[i]._mainCommandBuffer));
 
-    _mainDeletionQueue.push_function([=]()
-                       {
-                           vkDestroyCommandPool(vkEssentials._logicalDevice, vkEssentials._commandPool, nullptr);
-                       });
+        mainDeletionQueue.push_function([=]()
+                                         {
+                                             vkDestroyCommandPool(oVkEssentials._logicalDevice, oFrameData[i]._commandPool, nullptr);
+                                         });
+    }
 
 }

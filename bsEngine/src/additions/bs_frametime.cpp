@@ -9,11 +9,11 @@ float bsEngine::frametimeCounter()
 {
 
     const auto current_time = std::chrono::high_resolution_clock::now();
-    auto frametime = std::chrono::duration<float, std::chrono::seconds::period>(current_time - additions.last_time).count();
+    auto frametime = std::chrono::duration<float, std::chrono::seconds::period>(current_time - oAdditions.last_time).count();
 
     //std::cout << "Frametime: " << frametime << "ms" << std::endl;
 
-    additions.last_time = current_time;
+    oAdditions.last_time = current_time;
 
     return frametime;
 }

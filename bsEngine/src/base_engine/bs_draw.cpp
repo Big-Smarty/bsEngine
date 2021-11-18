@@ -10,15 +10,15 @@
 void bsEngine::draw()
 {
 
-    VK_CHECK(vkWaitForFences(vkEssentials._logicalDevice, 1, &vkEssentials._renderFence, true, 1000000000));
-    VK_CHECK(vkResetFences(vkEssentials._logicalDevice, 1, &vkEssentials._renderFence));
+    VK_CHECK(vkWaitForFences(oVkEssentials._logicalDevice, 1, &getCurrentFrame()._renderFence, true, 1000000000));
+    VK_CHECK(vkResetFences(oVkEssentials._logicalDevice, 1, &getCurrentFrame()._renderFence));
 
     uint32_t swapchainImageIndex;
-    VK_CHECK(vkAcquireNextImageKHR(vkEssentials._logicalDevice, vkEssentials._swapchain, 1000000000, vkEssentials._presentSemaphore, nullptr, &swapchainImageIndex));
+    VK_CHECK(vkAcquireNextImageKHR(oVkEssentials._logicalDevice, oVkEssentials._swapchain, 1000000000, getCurrentFrame()._presentSemaphore, nullptr, &swapchainImageIndex));
 
-    VK_CHECK(vkResetCommandBuffer(vkEssentials._mainCommandBuffer, 0));
+    VK_CHECK(vkResetCommandBuffer(getCurrentFrame()._mainCommandBuffer, 0));
 
-    VkCommandBuffer cmd = vkEssentials._mainCommandBuffer;
+    VkCommandBuffer cmd = getCurrentFrame()._mainCommandBuffer;
 
     VkCommandBufferBeginInfo cmdBeginInfo = {
 
@@ -32,7 +32,7 @@ void bsEngine::draw()
     VK_CHECK(vkBeginCommandBuffer(cmd, &cmdBeginInfo));
 
     VkClearValue clearValue;
-    float flash = abs(sin(_frameNumber / 120.0f));
+    float flash = abs(sin(frameNumber / 120.0f));
     clearValue.color =  {{flash, 0.0f, 10.0f, 0.0f}};
 
     VkClearValue depthClear;
@@ -46,11 +46,11 @@ void bsEngine::draw()
     rpInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
     rpInfo.pNext = nullptr;
 
-    rpInfo.renderPass = vkEssentials._renderPass;
+    rpInfo.renderPass = oVkEssentials._renderPass;
     rpInfo.renderArea.offset.x = 0;
     rpInfo.renderArea.offset.y = 0;
-    rpInfo.renderArea.extent = _bs_window._windowExtent;
-    rpInfo.framebuffer = vkEssentials._framebuffers[swapchainImageIndex];
+    rpInfo.renderArea.extent = oWindow._windowExtent;
+    rpInfo.framebuffer = oVkEssentials._framebuffers[swapchainImageIndex];
 
     //connect clear values
     rpInfo.clearValueCount = 2;
@@ -58,7 +58,7 @@ void bsEngine::draw()
 
     vkCmdBeginRenderPass(cmd, &rpInfo, VK_SUBPASS_CONTENTS_INLINE);
 
-    draw_objects(cmd, _renderables.data(), _renderables.size());
+    draw_objects(cmd, renderables.data(), renderables.size());
 
     vkCmdEndRenderPass(cmd);
     VK_CHECK(vkEndCommandBuffer(cmd));
@@ -70,31 +70,31 @@ void bsEngine::draw()
             .sType = VK_STRUCTURE_TYPE_SUBMIT_INFO,
             .pNext = nullptr,
             .waitSemaphoreCount = 1,
-            .pWaitSemaphores = &vkEssentials._presentSemaphore,
+            .pWaitSemaphores = &getCurrentFrame()._presentSemaphore,
             .pWaitDstStageMask = &waitStage,
             .commandBufferCount = 1,
             .pCommandBuffers = &cmd,
             .signalSemaphoreCount = 1,
-            .pSignalSemaphores = &vkEssentials._renderSemaphore,
+            .pSignalSemaphores = &getCurrentFrame()._renderSemaphore,
 
     };
 
-    VK_CHECK(vkQueueSubmit(vkEssentials._graphicsQueue, 1, &submit, vkEssentials._renderFence));
+    VK_CHECK(vkQueueSubmit(oVkEssentials._graphicsQueue, 1, &submit, getCurrentFrame()._renderFence));
 
     VkPresentInfoKHR presentInfo = {
 
             .sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR,
             .pNext = nullptr,
             .waitSemaphoreCount = 1,
-            .pWaitSemaphores = &vkEssentials._renderSemaphore,
+            .pWaitSemaphores = &getCurrentFrame()._renderSemaphore,
             .swapchainCount = 1,
-            .pSwapchains = &vkEssentials._swapchain,
+            .pSwapchains = &oVkEssentials._swapchain,
             .pImageIndices = &swapchainImageIndex,
     };
 
-    VK_CHECK(vkQueuePresentKHR(vkEssentials._graphicsQueue, &presentInfo));
+    VK_CHECK(vkQueuePresentKHR(oVkEssentials._graphicsQueue, &presentInfo));
 
-    _frameNumber++;
+    frameNumber++;
 
-    _frametime = frametimeCounter();
+    frametime = frametimeCounter();
 }

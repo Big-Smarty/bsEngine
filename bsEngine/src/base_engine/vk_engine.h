@@ -14,6 +14,8 @@
 #include <io/mouse_input.h>
 #include "../io/controller_input.h"
 
+constexpr unsigned int FRAME_OVERLAP = 2;
+
 struct CamState
 {
 
@@ -21,6 +23,7 @@ struct CamState
     glm::vec3 camPos = {0,0,10};
     glm::mat4 view = glm::lookAt(camPos, glm::vec3(0,0,0), glm::vec3(0,1,0));
     glm::mat4 projection;
+    glm::mat4 viewProj;
     glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f,  0.0f);
 
     glm::vec3 camMovement = {0.0f, 0.0f, 0.0f};
@@ -33,12 +36,30 @@ struct CamState
 
 };
 
+struct GPUCameraData
+{
+    glm::mat4 view;
+    glm::mat4 proj;
+    glm::mat4 viewproj;
+};
+
+struct GPUSceneData
+{
+    glm::vec4 fogColor;
+    glm::vec4 fogDistances;
+    glm::vec4 ambientColor;
+    glm::vec4 sunlightDirection;
+    glm::vec4 sunlightColor;
+};
+
 struct InputValues
 {
-    float xOffset;
-    float yOffset;
-    float conRightX;
-    float conRightY;
+    float* conGyro;
+
+    float xOffset = 0;
+    float yOffset = 0;
+    float conRightX = 0;
+    float conRightY = 0;
 };
 
 struct Material
@@ -68,6 +89,19 @@ struct MeshPushConstants
     glm::mat4 render_matrix;
 };
 
+struct FrameData
+{
+    //sync stuff
+    VkSemaphore _presentSemaphore, _renderSemaphore;
+    VkFence _renderFence;
+
+    VkCommandPool _commandPool; //the commandpool to manage command buffer and stuff
+    VkCommandBuffer _mainCommandBuffer; //commandbuffer to store commands
+
+    AllocatedBuffer cameraBuffer; //VRAM buffer containing all the camera data
+    VkDescriptorSet globalDescriptor;
+};
+
 struct VulkanEssentials
 {
     VkInstance _instance; //load core vulkan structures
@@ -89,15 +123,8 @@ struct VulkanEssentials
     VkQueue _graphicsQueue; //queue which is going to have commands submitted to
     uint32_t _graphicsQueueFamily; //family of that queue
 
-    VkCommandPool _commandPool; //the commandpool to manage command buffer and stuff
-    VkCommandBuffer _mainCommandBuffer; //commandbuffer to store commands
-
     VkRenderPass  _renderPass;
     std::vector<VkFramebuffer> _framebuffers;
-
-    //sync stuff
-    VkSemaphore _presentSemaphore, _renderSemaphore;
-    VkFence _renderFence;
 };
 
 struct AdditionalVariables
@@ -131,43 +158,61 @@ struct DeletionQueue
 class bsEngine {
 public:
 
-    AdditionalVariables additions;
-    VulkanEssentials vkEssentials;
-    GamePadHandling controllerHandling;
-    InputValues inputValues;
-    bsWindow _bs_window;
+    //storing the frame data
+    FrameData oFrameData[FRAME_OVERLAP];
+    //getting current frame data
+    FrameData& getCurrentFrame();
+    //additions like framecounter (method to use this will be improved later on
+    AdditionalVariables oAdditions;
+    //essentials like instance, logical device, so on
+    VulkanEssentials oVkEssentials;
+    //controllerhandling uh
+    GamePadHandling oControllerHandling;
+    //stores all inputs
+    InputValues oInput;
+    //window object
+    bsWindow oWindow;
+
+    GPUSceneData sceneParameters;
+    AllocatedBuffer sceneParametersBuffer;
 
     VkPipelineLayout genericPipelineLayout;
 
-    VkPipelineLayout _meshPipelineLayout;
-    VkPipeline _meshPipeline;
-    Mesh _triangleMesh;
+    VkPipelineLayout meshPipelineLayout;
+    VkPipeline meshPipeline;
 
-    Mesh _monkeyMesh;
+    Mesh monkeyMesh;
 
-    DeletionQueue _mainDeletionQueue;
+    DeletionQueue mainDeletionQueue;
 
-    VmaAllocator _allocator;
+    VkPhysicalDeviceProperties _deviceProperties;
 
-    VkImageView _depthImageView;
-    AllocatedImage _depthImage;
+    VmaAllocator allocator;
+
+    VkImageView depthImageView;
+    AllocatedImage depthImage;
 
     //depth image format
-    VkFormat _depthFormat;
+    VkFormat depthFormat;
 
     //default array for renderable objects
-    std::vector<RenderObject> _renderables;
+    std::vector<RenderObject> renderables;
 
     InputMouse mouseInput;
 
-    std::unordered_map<std::string,Material> _materials;
-    std::unordered_map<std::string,Mesh> _meshes;
+    std::unordered_map<std::string,Material> materials;
+    std::unordered_map<std::string,Mesh> meshes;
 
-    float _frametime = 0;
+    VkDescriptorSetLayout globalSetLayout;
+    VkDescriptorPool descriptorPool;
+
+    float frametime = 0;
     CamState camState = {};
 
-	bool _isInitialized{ false };
-	float _frameNumber {0};
+    bool bQuit = {false};
+
+	bool bIsInitialized{false };
+	int frameNumber {0};
 
     //FUNCTIONS
 
@@ -204,6 +249,12 @@ private:
     void init_scene();
 
     void upload_mesh(Mesh& mesh);
+
+    void init_descriptors();
+
+    size_t pad_uniform_buffer_size(size_t originalSize);
+
+    AllocatedBuffer createBuffer(size_t allocSize, VkBufferUsageFlags usage, VmaMemoryUsage memUsage);
 
     void camera();
 

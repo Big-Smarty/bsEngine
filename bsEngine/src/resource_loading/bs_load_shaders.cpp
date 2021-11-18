@@ -28,7 +28,7 @@ std::optional<VkShaderModule> bsEngine::load_shader(const char* shaderPath, VkSh
     VkShaderModuleCreateInfo shaderInfo = vkinit::createShaderInfo(shaderSize, shaderBuffer.data());
     cout << "Shadersize of shaderinfo: " << shaderInfo.codeSize << endl;
 
-    vkCreateShaderModule(vkEssentials._logicalDevice, &shaderInfo, nullptr, outShaderModule);
+    vkCreateShaderModule(oVkEssentials._logicalDevice, &shaderInfo, nullptr, outShaderModule);
 
     return *outShaderModule;
 
