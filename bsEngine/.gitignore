@@ -1,2 +1,6 @@
 /build
 /bin
+.cache/
+build/
+compile_commands.json
+shaders/*

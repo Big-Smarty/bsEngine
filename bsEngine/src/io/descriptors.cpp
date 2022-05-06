@@ -37,8 +37,8 @@ void bsEngine::init_descriptors()
     VkDescriptorSetLayoutCreateInfo setInfo = {
             .sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO,
             .pNext = nullptr,
-            .bindingCount = 1,
             .flags = 0,
+            .bindingCount = 1,
             .pBindings = &camBufferBinding
     };
 

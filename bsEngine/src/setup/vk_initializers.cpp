@@ -12,6 +12,8 @@ VkRenderPassBeginInfo vkinit::renderPassBeginInfo(VkRenderPass pass, VkExtent2D 
     rpInfo.renderArea.extent = extent;
     rpInfo.framebuffer = frameBuffer;
 
+    return rpInfo;
+
 }
 
 VkCommandPoolCreateInfo vkinit::commandPoolCreateInfo(uint32_t queueFamilyIndex, VkCommandPoolCreateFlags flags)
@@ -302,10 +304,10 @@ VkImageViewCreateInfo vkinit::imageViewCreateInfo(VkFormat format, VkImage image
             .viewType = VK_IMAGE_VIEW_TYPE_2D,
             .format = format,
             .subresourceRange = {
+                    .aspectMask = aspectFlags,
                     .baseMipLevel = 0,
                     .levelCount = 1,
                     .baseArrayLayer = 0,
-                    .aspectMask = aspectFlags,
                     .layerCount = 1,
             }
     };

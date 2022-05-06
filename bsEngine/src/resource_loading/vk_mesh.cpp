@@ -103,14 +103,8 @@ bool Mesh::loadFromObj(const char* model)
 
                 //copy everything into the vertex
                 Vertex new_vert = {
-                        .position.x = vx,
-                        .position.y = vy,
-                        .position.z = vz,
-
-                        .normal.x = nx,
-                        .normal.y = ny,
-                        .normal.z = nz,
-
+                        .position = {vx, vy, vz},
+                        .normal = {nx, ny, nz},
                         .color = new_vert.normal
                 };
 
